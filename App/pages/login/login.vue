@@ -8,15 +8,16 @@
 						<image src='/static/images/logo.png'></image>
 					</view>
 					<view class='row font-lv2'>
-						<view class='col-3'>账号</view>
-						<view class='col-9'>
-							<input name="username" auto-focus='true' placeholder="请输入用户名或邮箱" />
+						<view class='col-3'>+ 86</view>
+						<view class='col-6'>
+							<input type="number" name="username" auto-focus='true' placeholder="请输入电话号码" />
 						</view>
+						<button @click="sendCode" class='senCode col-3'>发送验证码</button>
 					</view>
 					<view class='row font-lv2'>
-						<view class='col-3'>密码</view>
+						<view class='col-3'>验证码</view>
 						<view class='col-9'>
-							<input password name="password" placeholder="请输入密码" />
+							<input password name="password" placeholder="请输入接收到的验证码" />
 						</view>
 					</view>
 				</view>
@@ -179,6 +180,9 @@
 						util.toastError(e.errMsg)
 					}
 				})
+			},
+			sendCode:function(e){
+				console.log("用户请求发送验证码")
 			}
 		}
 	}
@@ -194,5 +198,18 @@
 		border: 1px solid #ddd;
 		margin: 15px auto;
 		display: block;
+	}
+
+	.senCode{
+		text-align: center;
+		font-size: 16px;
+		width:250upx;
+		height:70upx;
+		background-color:#ffffff;
+		margin-right:10upx;
+		margin-top:10upx;
+		border-radius: 10%;
+		border-width: 1px;
+		border-color: #fbffea;
 	}
 </style>

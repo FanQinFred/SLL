@@ -43,12 +43,14 @@
 				info.version = wgtInfo.version
 
 				// 如果是Android平台，则检测是否有新版本
+				//暂时关闭更新
 				if (String(info.platform).toLowerCase() == "android") {
 					if (config.debug) console.log("request version api", config.api.lastestVersion)
 					util.request(config.api.lastestVersion).then(function(res) {
 						if (config.debug) console.log("latest version:", res)
 						if (res && res.data && res.data.version) {
 							if (config.debug) console.log("当前版本", info.versionCode, "最新版本", res.data.version)
+							暂时关闭更新
 							if (info.versionCode < res.data.version) {
 								uni.showModal({
 									title: "温馨提示",

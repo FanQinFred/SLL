@@ -172,7 +172,7 @@
 	max-width: 41.666667%;
 }
 
-.col-6 {
+. {
 	flex: 0 0 50%;
 	max-width: 50%;
 }

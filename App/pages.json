@@ -17,6 +17,12 @@
 			}
 		},
 		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
 			"path": "pages/comment/comment",
 			"style": {
 				"navigationBarTitleText": "点评"
@@ -26,12 +32,6 @@
 			"path": "pages/reg/reg",
 			"style": {
 				"navigationBarTitleText": "注册"
-			}
-		},
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登录"
 			}
 		},
 		{
