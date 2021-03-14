@@ -6,17 +6,20 @@
 					<view v-if="showIcon" class="header-icon icon-left">
 						<block v-if="currentPagesLength>1">
 							<view class="back" @click="headerBack" :style="iconPadding">
-								<image src="/static/images/header-back.png"></image>
+								<image src="/static/images/menu.png"></image>
 							</view>
 							<view class="line" :style="lineMargin"></view>
 						</block>
 						<view class="home" @click="headerHome" :style="iconPadding">
-							<image src="/static/images/header-home.png"></image>
+							<image src="/static/images/menu.png"></image>
 						</view>
 					</view>
 				</view>
 				<view class="col-6">
-					<view class="header-title">{{title}}</view>
+					<u-dropdown>
+								<u-dropdown-item v-model="value1" title="距离" :options="options1"></u-dropdown-item>
+								<u-dropdown-item v-model="value2" title="温度" :options="options2"></u-dropdown-item>
+					</u-dropdown>
 				</view>
 				<view class="col-3">
 					<view class="header-icon icon-right">
@@ -54,7 +57,7 @@
 		props: {
 			title: {
 				type: String,
-				default: 'BookChat'
+				default: '文本 <——> 口语'
 			},
 			showIcon: {
 				type: Boolean,
@@ -97,7 +100,7 @@
 			that.lineMargin = `margin-top: ${top}px`
 
 			// #ifdef APP-PLUS
-			that.showShare = true
+			that.showShare = false
 			// #endif
 		},
 		methods: {

@@ -4,7 +4,7 @@
 		<view class="base-padding mgt-30">
 			<form @submit="submit">
 				<view class='form-body'>
-					<view class='row font-lv2'>
+					<view class='row font-lv2 overHidden'>
 						<view class='col-3'>电话号码</view>
 						<view class='col-5'>
 							<input name="email" placeholder="请输入电话号码" />
@@ -15,19 +15,7 @@
 					<view class='row font-lv2'>
 						<view class='col-3'>验证码</view>
 						<view class='col-9'>
-							<input type="number" maxlength="4" password name="password" placeholder="请输入验证码" />
-						</view>
-					</view>
-					<view class='row font-lv2'>
-						<view class='col-3'>用户名</view>
-						<view class='col-9'>
-							<input name="username" placeholder="请输入用户名" />
-						</view>
-					</view>
-					<view class='row font-lv2'>
-						<view class='col-3'>用户昵称</view>
-						<view class='col-9'>
-							<input name="nickname" placeholder="请输入昵称" />
+							<input type="number" maxlength="4" password name="code" placeholder="请输入验证码" />
 						</view>
 					</view>
 					<view class='row font-lv2'>
@@ -48,16 +36,6 @@
 				</view>
 				<view class='row'>
 					<button :loading='loading' form-type="submit" class='btn-submit btn-block'> 立即注册 </button>
-				</view>
-				<!-- #ifdef MP-WEIXIN -->
-				<view class="row">
-					<button @getuserinfo='wechatLogin' :loading='loadingWechat' open-type="getUserInfo" class='btn-auth btn-block'>
-						微信登录
-					</button>
-				</view>
-				<!-- #endif -->
-				<view class='row'>
-					<button class='btn-block btn-login' @click='toLogin'> 马上登录 </button>
 				</view>
 			</form>
 		</view>
@@ -82,7 +60,7 @@
 				loadingWechat: false,
 				waitingtime:"发送验证码",
 				telNumber:'',
-				disabledSendCode:false
+				disabledSendCode:false,
 			}
 		},
 		onLoad(op) {
@@ -106,36 +84,30 @@
 		},
 		methods: {
 			submit: function(e) {
-				if (config.debug) console.log("submit", e)
-
 				let that = this
 
-				if (that.loading) return
-
-				let data = e.detail.value
-
-				if (!util.isEmail(data.email)) {
-					util.toastError('邮箱格式不正确')
+				if(e.detail.value.re_password!=e.detail.value.password){
+					util.toastError('两次输入的密码不一样')
 					return
 				}
-				if (data.password != data.re_password) {
-					util.toastError('两次输入的密码不一致，请重新输入')
+                 
+				if (e.detail.value.password == '' || e.detail.value.username == '') {
+					util.toastError('手机号或验证码不能为空')
 					return
 				}
 
-				if (data.username == '' || data.nickname == '' || data.password == '' || data.re_password == '') {
-					util.toastError('以上资料项均为必填项，请认真填写')
-					return
-				}
-
-				that.loading = true
-
-				util.request(config.api.register, data, 'POST').then(function(res) {
-					if (config.debug) console.log(config.api.register, res)
-					util.setUser(res.data.user)
-					uni.showToast({
-						title: '注册成功',
-					})
+				that.loading = true;
+				
+				let requestData = {
+					phoneNumber:e.detail.value.username,
+					code:e.detail.value.code,
+					password:e.detail.value.password,
+					type:'1'
+				};
+				
+				util.request(config.api.register, requestData, 'POST').then((res) => {
+					if (config.debug) console.log(config.api.login, res);
+					util.toastSuccess('登录成功')
 					setTimeout(function() {
 						let url = decodeURIComponent(that.redirect)
 						if (url.indexOf("?") > -1) {
@@ -148,11 +120,10 @@
 							})
 						}
 					}, 1500)
-				}).catch(function(e) {
-					if (config.debug) console.log(config.api.register, e)
-					util.toastError(e.data.message || e.errMsg)
-				}).finally(function() {
+				}).catch((e) => {
+					if (config.debug) console.log(e);
 					that.loading = false
+					util.toastError(e.data.message || e.errMsg)
 				})
 			},
 			toLogin: function() {
@@ -205,6 +176,42 @@
 					fail: function(e) {
 						util.toastError(e.errMsg)
 					}
+				})
+			},
+			getTelNumber:function(e){
+				let that=this;
+				// console.log(e.detail.value);
+				that.telNumber=e.detail.value;
+			},
+			sendCode:function(e){
+				console.log("发送验证码")
+				console.log(e);
+				let that=this;
+				that.disabledSendCode=true;
+				var resttime=60;
+				that.waitingtime=resttime+"秒重新发送";
+				
+				let timer = null;
+				
+			    timer = setInterval(() => {
+					if(resttime>0&&resttime<=60){
+						resttime--;
+						that.waitingtime=resttime+"秒重新发送";
+					}else{
+						that.waitingtime="发送验证码";
+						resttime=60;
+						that.disabledSendCode=false;
+						clearInterval(timer);
+					}
+				}, 1000);
+				
+				let requestData={phoneNumber:that.telNumber};
+				
+				util.request(config.api.sendMessage,requestData, 'POST').then((res) => {
+					console.log("config.api.sendMessage")
+					console.log(res);
+				}).catch((e) => {
+					util.toastError(e.data.message || e.errMsg)
 				})
 			}
 		}

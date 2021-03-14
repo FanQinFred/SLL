@@ -5,7 +5,7 @@
 			<form @submit="formSubmit">
 				<view class='form-body'>
 					<view>
-						<image src='/static/images/logo.png'></image>
+						<image src='/static/images/logo.jpg'></image>
 					</view>
 					<view class='row font-lv2 overHidden'>
 						<view class='col-3'>+86</view>
@@ -143,35 +143,6 @@
 					that.loading = false
 					util.toastError(e.data.message || e.errMsg)
 				})
-				
-
-				// util.request(config.api.login, e.detail.value, 'POST').then((res) => {
-				// 	if (config.debug) console.log(config.api.login, res);
-				// 	let user = res.data.user
-				// 	if (user == undefined || user.uid <= 0 || user.token == '') {
-				// 		util.toastError('登录失败：未知错误')
-				// 		that.loading = false
-				// 		return
-				// 	}
-				// 	util.setUser(user)
-				// 	util.toastSuccess('登录成功')
-				// 	setTimeout(function() {
-				// 		let url = decodeURIComponent(that.redirect)
-				// 		if (url.indexOf("?") > -1) {
-				// 			uni.redirectTo({
-				// 				url: url
-				// 			})
-				// 		} else {
-				// 			uni.switchTab({
-				// 				url: url
-				// 			})
-				// 		}
-				// 	}, 1500)
-				// }).catch((e) => {
-				// 	if (config.debug) console.log(e);
-				// 	that.loading = false
-				// 	util.toastError(e.data.message || e.errMsg)
-				// })
 			},
 			wechatLogin: function(e) {
 				let that = this

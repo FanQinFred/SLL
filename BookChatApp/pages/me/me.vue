@@ -8,98 +8,26 @@
 			</view>
 			<view v-if="user.intro" class='color-grey font-lv3 user-intro'>{{user.intro}}</view>
 		</view>
-		<view v-if="moreInfo.uid>0" class="row col-title font-lv2">
-			<view class="col font-lv2">
-				<image class="me-icon" src="/static/images/report.png"></image>
-				<text>我的成就</text>
-			</view>
-			<view class="col text-right">
-				<view v-if="isSignedToday" class="text-muted font-lv4 signed">
-					<image class="me-icon" src="/static/images/signed.png">已签到</image>
-				</view>
-				<view v-else class="color-link" @click="sign">
-					<image class="me-icon" src="/static/images/sign.png"></image>
-					<text>签到</text>
-				</view>
-				<text class="line">|</text>
-				<navigator class="color-link" url="/pages/rank/rank">
-					<image class="me-icon" src="/static/images/rank.png"></image>
-					<text>榜单</text>
-				</navigator>
-			</view>
-		</view>
-		<view v-if="moreInfo.uid>0" class="row text-center font-lv4 text-muted reading-time">
-			<view class="col-4">
-				<view><text class="font-lv3">{{moreInfo.today_reading_hour}}</text> 时 <text class="font-lv3">{{moreInfo.today_reading_min}}</text>
-					分</view>
-				<view class="font-lv5">今日阅读</view>
-			</view>
-			<view class="col-4">
-				<view><text class="font-lv3">{{moreInfo.month_reading_hour}}</text> 时 <text class="font-lv3">{{moreInfo.month_reading_min}}</text>
-					分</view>
-				<view class="font-lv5">本月阅读</view>
-			</view>
-			<view class="col-4">
-				<view><text class="font-lv3">{{moreInfo.total_reading_hour}}</text> 时 <text class="font-lv3">{{moreInfo.total_reading_min}}</text>
-					分</view>
-				<view class="font-lv5">累计阅读</view>
-			</view>
-			<view class="col-4">
-				<view><text class="font-lv3">{{moreInfo.join_day}}</text> 天</view>
-				<view class="font-lv5">加入组织</view>
-			</view>
-			<view class="col-4">
-				<view><text class="font-lv3">{{moreInfo.total_sign}}</text> 天</view>
-				<view class="font-lv5">累计签到</view>
-			</view>
-			<view class="col-4">
-				<view><text class="font-lv3">{{moreInfo.total_continuous_sign}}</text> 天</view>
-				<view class="font-lv5">连续签到</view>
-			</view>
-
-		</view>
 		<view class='base-padding row base-info font-lv2'>
 			
 			<navigator url='/pages/search/search' class='col-12'>
 				<image class="me-icon" src='../../static/images/search.png'></image>
-				<text>书籍搜索</text>
-				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
-			</navigator>
-			<navigator v-if="user.uid == 0" url='/pages/rank/rank' class='col-12'>
-				<image class="me-icon" src='../../static/images/rank.png'></image>
-				<text>热门榜单</text>
+				<text>我的收藏</text>
 				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
 			</navigator>
 			<navigator url='/pages/history/history' class='col-12'>
 				<image class="me-icon" src='../../static/images/history.png'></image>
-				<text>最近阅读</text>
-				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
-			</navigator>
-		</view>
-		<view class='base-padding row base-info font-lv2'>
-			<navigator :url="user.uid>0 ? '/pages/ucenter/ucenter?tab=release':'/pages/login/login'" class='col-12'>
-				<image class="me-icon" src='../../static/images/book.png'></image>
-				我的发布
-				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
-			</navigator>
-			<navigator :url='user.uid>0?"/pages/ucenter/ucenter?tab=star":"/pages/login/login"' class='col-12'>
-				<image class="me-icon" src='../../static/images/star.png'></image>
-				我的收藏
-				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
-			</navigator>
-			<navigator :url='user.uid>0?"/pages/ucenter/ucenter?tab=follow":"/pages/login/login"' class='col-12'>
-				<image class="me-icon" src='../../static/images/follow.png'></image>
-				我的关注
-				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
-			</navigator>
-			<navigator :url='user.uid>0?"/pages/ucenter/ucenter?tab=fans":"/pages/login/login"' class='col-12'>
-				<image class="me-icon" src='../../static/images/fans.png'></image>
-				我的粉丝
+				<text>历史记录</text>
 				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
 			</navigator>
 		</view>
 
 		<view class='base-padding row base-info font-lv2'>
+		<navigator :url='"/pages/read/read?identify="+info.about' class='col-12'>
+				<image class="me-icon" src='../../static/images/about-us.png'></image>
+				意见反馈
+				<image class='pull-right me-icon' src='../../static/images/right-angle.png'></image>
+			</navigator>
 			<navigator :url='"/pages/read/read?identify="+info.about' class='col-12'>
 				<image class="me-icon" src='../../static/images/about-us.png'></image>
 				关于我们
@@ -172,9 +100,9 @@
 				if (user == undefined || user.token == undefined || user.uid <= 0) {
 					user = {
 						'uid': 0,
-						'nickname': '游客，请戳我登录',
-						'avatar': '../../static/images/logo.png',
-						'intro': '分享知识，共享智慧；知识，因分享，传承久远'
+						'nickname': '请点我登录',
+						'avatar': '../../static/images/logo.jpg',
+						'intro': '心灵也手巧'
 					}
 					that.moreInfo = {
 						uid: 0,
