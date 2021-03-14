@@ -1,7 +1,7 @@
 <template>
-	<view class="box">
+	<view class="box" @click="toDetail">
 		<view class="word">
-			<text style="font-weight: bold; font-family: '楷体'">{{ type }}. {{ word }}</text>
+			<text style="font-weight: bold; font-family: '楷体'; margin-left: 5px;">{{ type }}. {{ word }}</text>
 		</view>
 		<view class="picture"><image style="width: 120px; height: 120px" mode="aspectFill" :src="imgsrc"></image></view>
 		<view class="interpretation" style="font-weight: normal; font-family: '楷体'">{{ interpretation }}</view>
@@ -15,6 +15,14 @@ export default {
 		return {};
 	},
 	onReady() {},
+	methods:{
+		toDetail(){
+			let that=this;
+			uni.navigateTo({
+				url: '/pages/detail/detail?word=' + that.word,
+			})
+		},
+	},
 	props: {
 		type: {
 			type: String,
@@ -44,7 +52,7 @@ export default {
 .box {
 	margin: 5px auto;
 	position: relative;
-	width: 90%;
+	width: 95%;
 	height: 190px;
 	// 边界线 后面删除
 	border-radius: 10%;
