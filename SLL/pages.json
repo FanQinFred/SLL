@@ -7,19 +7,44 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "Siller"
 			}
+		},{
+		    "path" : "pages/detail/detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
 		}, {
 			"path": "components/photo",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "Siller"
 			}
 		}, {
 			"path": "components/meaning",
 			"style": {}
-		}
-	    ,{
-            "path" : "pages/detail/detail",
+		},{
+            "path" : "pages/dictionary/dictionary",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/reg/reg",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -28,9 +53,30 @@
             
         }
     ],
+
+	// 底部导航栏
+	// "tabBar": {
+	// 	"list": [{
+	// 			"pagePath": "pages/index/index",
+	// 			"text": "首页",
+	// 			"iconPath": "static/images/home.png",
+	// 			"selectedIconPath": "static/images/home-selected.png"
+	// 		},
+	// 		{
+	// 			"pagePath": "pages/dictionary/dictionary",
+	// 			"text": "词典",
+	// 			"iconPath": "static/images/collect.png",
+	// 			"selectedIconPath": "static/images/collect-selected.png"
+	// 		}
+	// 	],
+	// 	"backgroundColor": "#ffffff",
+	// 	"color": "#888888",
+	// 	"selectedColor": "#1aad19"
+	// },
+
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "SLL",
+		"navigationBarTitleText": "Siller",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#FFFFFF",
 		"navigationStyle": "custom"

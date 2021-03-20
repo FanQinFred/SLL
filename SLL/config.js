@@ -9,12 +9,16 @@ const info = {
 	version: 'v1.5.1',
 	copyright: 'BookCode.CN',
 	license: 'Apache 2.0',
-	author: 'SSL',
+	author: 'Siller',
 }
 // SLL API
 const api = {
 	sendMessage: `${host}/loginService/sendMessage`,
 	register: `${host}/loginService/register`,
+	login: `${host}/loginService/login`,
+	unLogin: `${host}/loginService/unLogin`,
+	transfor2: `${host}/dactylology/transfor2`,
+	resource3:`${host}/resourceService/resource3`,
 }
 
 module.exports = {

@@ -1,44 +1,47 @@
 <template>
 	<view>
 		<!-- 头部导航 -->
-		<u-navbar :is-back="false" back-text="" title="">
-			<headernav class="slot-wrap"></headernav>
-		</u-navbar>
-		<split heightSplit="5px" widthSplit="100%"></split>
+		<u-navbar :is-back="false" back-text="" title=""><headernav class="slot-wrap"></headernav></u-navbar>
+		<!-- <split heightSplit="5px" widthSplit="100%"></split> -->
 		<!-- 翻译类型选择 -->
-
-		<u-tabs active-color="#b3c5ff" :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs>
+		<u-sticky offset-top="140"><u-tabs active-color="#b3c5ff" :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs></u-sticky>
 		<split heightSplit="1px" widthSplit="100%"></split>
 		<!-- 文本 -->
 		<view v-if="current == 0">
-			<view class="translate-content"><textarea placeholder="眼睛"></textarea></view>
+			<view class="translate-content"><textarea @input="textareaInput" @focus="textFocus" @blur="textBlur" placeholder="请输入..."></textarea></view>
 			<split heightSplit="2px" widthSplit="100%"></split>
 			<!-- 翻译结果 -->
-			<view class="translate-history">
-				<meaning></meaning>
+			<view v-if="tranlateWord != ''">
+				<view class="translate-history">
+					<block v-for="(word, idx) of mainwords" :key="idx"><meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning></block>
+				</view>
 			</view>
 			<split heightSplit="15px" widthSplit="100%"></split>
-			
+
 			<!-- 翻译历史 -->
-			<view class="translate-history">
-				<view class="text-history"><text>翻译历史</text></view>
-				<meaning></meaning>
-				<meaning></meaning>
-				<meaning></meaning>
-				<meaning></meaning>
-				<meaning></meaning>
+			<view v-if="tranlateWord == '' && focus == false && words == ''">
+				<view class="translate-history">
+					<view class="text-history"><text>翻译历史</text></view>
+					<meaning></meaning>
+					<meaning></meaning>
+					<meaning></meaning>
+					<meaning></meaning>
+					<meaning></meaning>
+				</view>
+			</view>
+			<view v-else>
+				<view v-if="relatedwords.length != 0">
+					<view class="translate-history">
+						<view class="text-history"><text>相关词语</text></view>
+						<block v-for="(word, idx) of relatedwords" :key="idx"><meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning></block>
+					</view>
+				</view>
 			</view>
 		</view>
 		<!-- 图片 -->
-		<view v-if="current == 1">
-			<photo :filePath="filePath">
-				
-			</photo>
-		</view>
+		<view v-if="current == 1"><photo :filePath="filePath"></photo></view>
 		<!-- 视频 -->
-		<view v-if="current == 2">
-			<videoInspect :videoPath="videoPath"></videoInspect>
-		</view>
+		<view v-if="current == 2"><videoInspect :videoPath="videoPath"></videoInspect></view>
 	</view>
 </template>
 
@@ -54,7 +57,7 @@ import videoInspect from '../../components/video.vue';
 import headernav from '../../components/headernav.vue';
 
 export default {
-	components: { meaning, split, photo,videoInspect,headernav },
+	components: { meaning, split, photo, videoInspect, headernav },
 	data() {
 		return {
 			list: [
@@ -65,12 +68,20 @@ export default {
 					name: '图片'
 				},
 				{
-					name: '视频',
+					name: '视频'
 				}
 			],
 			current: 0,
 			filePath: '',
-			videoPath:'',
+			videoPath: '',
+			tranlateWord: '',
+			relatedwordsid: [],
+			mainwordsid: [],
+			relatedwords: [],
+			mainwords: [],
+			focus: false,
+			words: [],
+			fids: []
 		};
 	},
 	methods: {
@@ -80,9 +91,8 @@ export default {
 				uni.chooseImage({
 					count: 1, //默认9
 					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-					sourceType: ['camera '], //从相册选择
+					sourceType: ['camera'], //从相册选择
 					success: function(res) {
-						console.log(JSON.stringify(res.tempFilePaths));
 						this.filePath = JSON.stringify(res.tempFilePaths);
 					}
 				});
@@ -90,27 +100,117 @@ export default {
 			if (index == 2) {
 				uni.chooseVideo({
 					count: 1,
-					sourceType: ['camera', 'album'],
+					sourceType: ['camera'],
 					success: function(res) {
 						self.src = res.tempFilePath;
 						this.videoPath = JSON.stringify(res.tempFilePaths);
 					}
 				});
 			}
+		},
+		textareaInput(e) {
+			let that = this;
+			//清空变量
+			that.words.splice(0, that.words.length);
+			that.relatedwordsid.splice(0, that.relatedwords.length);
+			that.mainwordsid.splice(0, that.mainwords.length);
+			that.relatedwords.splice(0, that.relatedwords.length);
+			that.mainwords.splice(0, that.mainwords.length);
+
+			this.tranlateWord = e.detail.value;
+
+			let requestData = {
+				sentence: '',
+				token: ''
+			};
+			requestData.sentence = this.tranlateWord;
+			requestData.token = util.getToken();
+
+			util.request(config.api.transfor2, requestData, 'POST')
+				.then(res => {
+					for (let i = 0; i < res.item.length; i++) {
+						// 保存主词和相关词的fid
+						let fids = [];
+						if (res.item[i].result != '-1') {
+							fids = res.item[i].result.split(',');
+						}
+						if (fids.length != 0) {
+							that.mainwordsid.push(fids[0]);
+						}
+						for (let k = 1; k < fids.length; k++) {
+							if (fids.length > 1) {
+								that.relatedwordsid.push(fids[k]);
+							}
+						}
+
+						for (let j = 0; j < that.mainwordsid.length; j++) {
+							let wordRequst = {
+								token: '',
+								fid: ''
+							};
+							wordRequst.token = util.getToken();
+							wordRequst.fid = fids[i];
+							if (wordRequst.fid != '-1') {
+								util.request(config.api.resource3, wordRequst, 'POST')
+									.then(res => {
+										console.log(res);
+										if (res.code != '301') {
+											that.mainwords.push(res);
+										}
+									})
+									.catch(e => {
+										that.loading = false;
+										util.toastError(e.data.message || e.errMsg);
+									});
+							}
+						}
+						// 相关词语
+						for (let j = 0; j < that.relatedwordsid.length; j++) {
+							let wordRequst = {
+								token: '',
+								fid: ''
+							};
+							wordRequst.token = util.getToken();
+							wordRequst.fid = fids[i];
+							if (wordRequst.fid != '-1') {
+								util.request(config.api.resource3, wordRequst, 'POST')
+									.then(res => {
+										if (res.code != '301') {
+											that.relatedwords.push(res);
+										}
+									})
+									.catch(e => {
+										that.loading = false;
+										util.toastError(e.data.message || e.errMsg);
+									});
+							}
+						}
+					}
+				})
+				.catch(e => {
+					that.loading = false;
+					util.toastError(e.data.message || e.errMsg);
+				});
+		},
+		textFocus(e) {
+			this.focus = true;
+		},
+		textBlur(e) {
+			this.focus = false;
 		}
 	}
 };
 </script>
 
 <style lang="scss" scoped>
-	.slot-wrap {
-			display: flex;
-			align-items: center;
-			/* 如果您想让slot内容占满整个导航栏的宽度 */
-			flex: 1;
-			/* 如果您想让slot内容与导航栏左右有空隙 */
-			/* padding: 0 30rpx; */
-		}
+.slot-wrap {
+	display: flex;
+	align-items: center;
+	/* 如果您想让slot内容占满整个导航栏的宽度 */
+	flex: 1;
+	/* 如果您想让slot内容与导航栏左右有空隙 */
+	/* padding: 0 30rpx; */
+}
 .translate-content {
 	padding: 15px;
 	height: 150px;
