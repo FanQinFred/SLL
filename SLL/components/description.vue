@@ -24,7 +24,7 @@
 	</view> -->
 	<view>
 		<view class="box1">
-			<text style="font-weight: bold;font-size: 24px; font-family: '楷体'; margin: 0px auto;">{{ type }}. {{ word }}</text>
+			<text style="font-weight: bold;font-size: 24px; font-family: '楷体'; margin: 0px auto;">{{ word }}<text style="font-size: 16px; font-family: '楷体'; margin: 0px auto;">{{"  "}}{{ type }}. </text></text>
 		</view>
 		<view class="box2">
 			<u-tabs active-color="#b3c5ff" :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs>
@@ -35,10 +35,10 @@
 					id="myVideo"
 					autoplay="true"
 					loop="true"
-					object-fit="contain"
+					object-fit="fill"
 					muted="false"
 					show-mute-btn="true"
-					src="https://sllvideo.oss-cn-beijing.aliyuncs.com/test01.mp4"
+					:src="videosrc"
 					@error="videoErrorCallback"
 					:danmu-list="danmuList"
 					enable-danmu="true"

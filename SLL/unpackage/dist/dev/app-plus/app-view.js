@@ -3905,7 +3905,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX.2.6.11.20200409.full/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\nbody[data-v-521d99cb] {\r\n\tcolor: $u-main-color;\r\n\tfont-size: 28rpx;\n}\n.logoword[data-v-521d99cb] {\r\n\theight: 48px;\r\n\tline-height: 48px;\r\n\tmargin: 0 auto;\r\n\tpadding-right: 53px;\r\n\tfont-size: 21px;\r\n\tfont-weight: bold;\n}\n.box[data-v-521d99cb] {\r\n\tdisplay: -webkit-box;\r\n\tdisplay: -webkit-flex;\r\n\tdisplay: flex;\r\n\t-webkit-box-align: center;\r\n\t-webkit-align-items: center;\r\n\t        align-items: center;\r\n\t-webkit-box-pack: center;\r\n\t-webkit-justify-content: center;\r\n\t        justify-content: center;\r\n\t/* 如果您想让slot内容占满整个导航栏的宽度 */\r\n\t-webkit-box-flex: 1;\r\n\t-webkit-flex: 1;\r\n\t        flex: 1;\r\n\t/* 如果您想让slot内容与导航栏左右有空隙 */\r\n\tpadding: 0 30rpx;\r\n\theight: 48px;\r\n\twidth: 100%;\n}\n.menu[data-v-521d99cb] {\r\n\twidth: 48px;\r\n\theight: 48px;\r\n\ttext-align: center;\r\n\tvertical-align: middle;\r\n\tline-height: 48px;\n}\n.func[data-v-521d99cb] {\r\n\tmargin-top: 50px;\n}\n.base-padding[data-v-521d99cb] {\r\n\tbox-sizing: border-box;\r\n\tpadding: 0upx 30upx;\n}\n.row[data-v-521d99cb] {\r\n\tbackground-color: #fff;\r\n\tmargin-bottom: 10upx;\r\n\tpadding: 30upx;\n}\n.font-lv2[data-v-521d99cb] {\r\n\tfont-size: 16px !important;\n}\n.base-info[data-v-521d99cb] {\r\n\tpadding-top: 0upx;\r\n\tpadding-bottom: 0upx;\n}\n.col-12[data-v-521d99cb] {\r\n\t-webkit-box-flex: 0;\r\n\t-webkit-flex: 0 0 100%;\r\n\t        flex: 0 0 100%;\r\n\tmax-width: 100%;\n}\nuni-image.me-icon[data-v-521d99cb] {\r\n\twidth: 40upx;\r\n\theight: 40upx;\r\n\tvertical-align: middle;\r\n\tmargin-right: 6upx;\r\n\tposition: relative;\r\n\ttop: -4upx;\n}\n.pull-right[data-v-521d99cb] {\r\n\tfloat: right;\n}\n.username[data-v-521d99cb] {\r\n\tmargin: 15upx auto;\n}\n.color-grey[data-v-521d99cb] {\r\n\tcolor: #888;\n}\n.font-lv3[data-v-521d99cb] {\r\n\tfont-size: 14px !important;\n}\n.user[data-v-521d99cb] {\r\n\ttext-align: center;\r\n\tdisplay: block;\r\n\twidth: 100%;\n}\n.user .text-muted[data-v-521d99cb] {\r\n\ttext-align: center;\n}\n.user uni-image[data-v-521d99cb] {\r\n\twidth: 180upx;\r\n\theight: 180upx;\r\n\tborder-radius: 90upx;\r\n\tborder: 1px solid #ddd;\r\n\tmargin: 0 auto;\r\n\tdisplay: block;\n}\n.user-func[data-v-521d99cb] {\r\n\tline-height: 40upx;\r\n\tborder: 1px solid #000000;\n}\n.user-func[data-v-521d99cb] {\r\n\tline-height: 40upx;\r\n\tborder: 1px solid #000000;\n}\n.user-func .func-item[data-v-521d99cb] {\r\n\tline-height: 300%;\r\n\tborder-bottom: 1upx dashed #f1f1f1;\r\n\tpadding: 0;\r\n\tmargin: 0;\n}\n.user-func .color-red[data-v-521d99cb] {\r\n\tmargin-right: 8upx;\n}\n.user-intro[data-v-521d99cb] {\r\n\twidth: 100%;\r\n\ttext-align: center;\n}\nuni-image[data-v-521d99cb] {\r\n\tdisplay: inline-block;\n}\n.base-info uni-image[data-v-521d99cb] {\r\n\tmargin-right: 30upx !important;\n}\n.base-info uni-image.pull-right[data-v-521d99cb] {\r\n\tmargin-right: 0 !important;\r\n\ttop: 0;\n}\n.base-info[data-v-521d99cb] {\r\n\tpadding-top: 0upx;\r\n\tpadding-bottom: 0upx;\n}\n.base-info .col-12[data-v-521d99cb] {\r\n\tborder-bottom: 1px solid #f6f6f6;\r\n\tpadding-bottom: 30upx;\r\n\tpadding-top: 30upx;\r\n\tcolor: #666;\n}\n.base-info .col-12[data-v-521d99cb]:last-of-type {\r\n\tmargin-bottom: 0;\r\n\tborder-bottom: 0;\n}\r\n", ""]);
+exports.push([module.i, "\nbody[data-v-521d99cb] {\r\n\tcolor: $u-main-color;\r\n\tfont-size: 28rpx;\n}\n.logoword[data-v-521d99cb] {\r\n\theight: 38px;\r\n\tline-height: 48px;\r\n\tmargin: 0 auto;\r\n\tpadding-right: 53px;\r\n\tfont-size: 21px;\r\n\tfont-weight: bold;\n}\n.box[data-v-521d99cb] {\r\n\tdisplay: -webkit-box;\r\n\tdisplay: -webkit-flex;\r\n\tdisplay: flex;\r\n\t-webkit-box-align: center;\r\n\t-webkit-align-items: center;\r\n\t        align-items: center;\r\n\t-webkit-box-pack: center;\r\n\t-webkit-justify-content: center;\r\n\t        justify-content: center;\r\n\t/* 如果您想让slot内容占满整个导航栏的宽度 */\r\n\t-webkit-box-flex: 1;\r\n\t-webkit-flex: 1;\r\n\t        flex: 1;\r\n\t/* 如果您想让slot内容与导航栏左右有空隙 */\r\n\tpadding: 0 30rpx;\r\n\theight: 48px;\r\n\twidth: 100%;\n}\n.menu[data-v-521d99cb] {\r\n\twidth: 48px;\r\n\theight: 48px;\r\n\ttext-align: center;\r\n\tvertical-align: middle;\r\n\tline-height: 48px;\n}\n.func[data-v-521d99cb] {\r\n\tmargin-top: 50px;\n}\n.base-padding[data-v-521d99cb] {\r\n\tbox-sizing: border-box;\r\n\tpadding: 0upx 30upx;\n}\n.row[data-v-521d99cb] {\r\n\tbackground-color: #fff;\r\n\tmargin-bottom: 10upx;\r\n\tpadding: 30upx;\n}\n.font-lv2[data-v-521d99cb] {\r\n\tfont-size: 16px !important;\n}\n.base-info[data-v-521d99cb] {\r\n\tpadding-top: 0upx;\r\n\tpadding-bottom: 0upx;\n}\n.col-12[data-v-521d99cb] {\r\n\t-webkit-box-flex: 0;\r\n\t-webkit-flex: 0 0 100%;\r\n\t        flex: 0 0 100%;\r\n\tmax-width: 100%;\n}\nuni-image.me-icon[data-v-521d99cb] {\r\n\twidth: 40upx;\r\n\theight: 40upx;\r\n\tvertical-align: middle;\r\n\tmargin-right: 6upx;\r\n\tposition: relative;\r\n\ttop: -4upx;\n}\n.pull-right[data-v-521d99cb] {\r\n\tfloat: right;\n}\n.username[data-v-521d99cb] {\r\n\tmargin: 15upx auto;\n}\n.color-grey[data-v-521d99cb] {\r\n\tcolor: #888;\n}\n.font-lv3[data-v-521d99cb] {\r\n\tfont-size: 14px !important;\n}\n.user[data-v-521d99cb] {\r\n\ttext-align: center;\r\n\tdisplay: block;\r\n\twidth: 100%;\n}\n.user .text-muted[data-v-521d99cb] {\r\n\ttext-align: center;\n}\n.user uni-image[data-v-521d99cb] {\r\n\twidth: 180upx;\r\n\theight: 180upx;\r\n\tborder-radius: 90upx;\r\n\tborder: 1px solid #ddd;\r\n\tmargin: 0 auto;\r\n\tdisplay: block;\n}\n.user-func[data-v-521d99cb] {\r\n\tline-height: 40upx;\r\n\tborder: 1px solid #000000;\n}\n.user-func[data-v-521d99cb] {\r\n\tline-height: 40upx;\r\n\tborder: 1px solid #000000;\n}\n.user-func .func-item[data-v-521d99cb] {\r\n\tline-height: 300%;\r\n\tborder-bottom: 1upx dashed #f1f1f1;\r\n\tpadding: 0;\r\n\tmargin: 0;\n}\n.user-func .color-red[data-v-521d99cb] {\r\n\tmargin-right: 8upx;\n}\n.user-intro[data-v-521d99cb] {\r\n\twidth: 100%;\r\n\ttext-align: center;\n}\nuni-image[data-v-521d99cb] {\r\n\tdisplay: inline-block;\n}\n.base-info uni-image[data-v-521d99cb] {\r\n\tmargin-right: 30upx !important;\n}\n.base-info uni-image.pull-right[data-v-521d99cb] {\r\n\tmargin-right: 0 !important;\r\n\ttop: 0;\n}\n.base-info[data-v-521d99cb] {\r\n\tpadding-top: 0upx;\r\n\tpadding-bottom: 0upx;\n}\n.base-info .col-12[data-v-521d99cb] {\r\n\tborder-bottom: 1px solid #f6f6f6;\r\n\tpadding-bottom: 30upx;\r\n\tpadding-top: 30upx;\r\n\tcolor: #666;\n}\n.base-info .col-12[data-v-521d99cb]:last-of-type {\r\n\tmargin-bottom: 0;\r\n\tborder-bottom: 0;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -4195,34 +4195,49 @@ var render = function() {
               },
               attrs: { _i: 2 }
             },
-            [_vm._v(_vm._$g(2, "t0-0") + ". " + _vm._$g(2, "t0-1"))]
+            [
+              _vm._v(_vm._$g(2, "t0-0")),
+              _c(
+                "v-uni-text",
+                {
+                  staticStyle: {
+                    "font-size": "16px",
+                    "font-family": "'楷体'",
+                    margin: "0px auto"
+                  },
+                  attrs: { _i: 3 }
+                },
+                [_vm._v(_vm._$g(3, "t0-0") + _vm._$g(3, "t0-1") + ".")]
+              )
+            ],
+            1
           )
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+        { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
         [
           _c("u-tabs", {
-            attrs: { _i: 4 },
+            attrs: { _i: 5 },
             on: {
               change: function($event) {
                 return _vm.$handleViewEvent($event)
               }
             }
           }),
-          _vm._$g(5, "i")
+          _vm._$g(6, "i")
             ? _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
                 [
                   _c("v-uni-image", {
                     staticStyle: { width: "240px", height: "240px" },
                     attrs: {
                       mode: "aspectFill",
-                      src: _vm._$g(6, "a-src"),
-                      _i: 6
+                      src: _vm._$g(7, "a-src"),
+                      _i: 7
                     }
                   })
                 ],
@@ -4230,7 +4245,7 @@ var render = function() {
               )
             : _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
                 [
                   _c("v-uni-video", {
                     staticStyle: { position: "static", "z-index": "1" },
@@ -4238,16 +4253,15 @@ var render = function() {
                       id: "myVideo",
                       autoplay: "true",
                       loop: "true",
-                      "object-fit": "contain",
+                      "object-fit": "fill",
                       muted: "false",
                       "show-mute-btn": "true",
-                      src:
-                        "https://sllvideo.oss-cn-beijing.aliyuncs.com/test01.mp4",
-                      "danmu-list": _vm._$g(8, "a-danmu-list"),
+                      src: _vm._$g(9, "a-src"),
+                      "danmu-list": _vm._$g(9, "a-danmu-list"),
                       "enable-danmu": "true",
                       "danmu-btn": "true",
                       controls: "true",
-                      _i: 8
+                      _i: 9
                     },
                     on: {
                       error: function($event) {
@@ -4263,22 +4277,22 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+        { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
         [
           _c(
             "v-uni-view",
             {
-              staticClass: _vm._$g(10, "sc"),
+              staticClass: _vm._$g(11, "sc"),
               staticStyle: { "font-weight": "normal", "font-family": "'楷体'" },
-              attrs: { _i: 10 }
+              attrs: { _i: 11 }
             },
             [
               _c(
                 "v-uni-text",
-                { staticStyle: { "font-weight": "bolder" }, attrs: { _i: 11 } },
+                { staticStyle: { "font-weight": "bolder" }, attrs: { _i: 12 } },
                 [_vm._v("释义：")]
               ),
-              _vm._v(_vm._$g(10, "t1-0"))
+              _vm._v(_vm._$g(11, "t1-0"))
             ],
             1
           )

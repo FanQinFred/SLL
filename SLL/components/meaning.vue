@@ -19,7 +19,7 @@ export default {
 		toDetail(){
 			let that=this;
 			uni.navigateTo({
-				url: '/pages/detail/detail?word=' + that.word,
+				url: '/pages/detail/detail?word=' + that.word+ "&type="+that.type+"&interpretation="+that.interpretation+"&imgsrc="+that.imgsrc+"&videosrc="+that.videosrc,
 			})
 		},
 	},

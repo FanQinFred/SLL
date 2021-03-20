@@ -156,7 +156,7 @@ page {
 	font-size: 28rpx;
 }
 .logoword {
-	height: 48px;
+	height: 38px;
 	line-height: 48px;
 	margin: 0 auto;
 	padding-right: 53px;
