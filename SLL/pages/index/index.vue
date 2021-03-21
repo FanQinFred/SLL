@@ -13,7 +13,9 @@
 			<!-- 翻译结果 -->
 			<view v-if="tranlateWord != ''">
 				<view class="translate-history">
-					<block v-for="(word, idx) of mainwords" :key="idx"><meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning></block>
+					<block v-for="(word, idx) of mainwords" :key="idx">
+						<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+					</block>
 				</view>
 			</view>
 			<split heightSplit="15px" widthSplit="100%"></split>
@@ -22,18 +24,18 @@
 			<view v-if="tranlateWord == '' && focus == false && words == ''">
 				<view class="translate-history">
 					<view class="text-history"><text>翻译历史</text></view>
-					<meaning></meaning>
-					<meaning></meaning>
-					<meaning></meaning>
-					<meaning></meaning>
-					<meaning></meaning>
+					<block v-for="(word, idx) of historywords" :key="idx">
+						<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+					</block>
 				</view>
 			</view>
 			<view v-else>
 				<view v-if="relatedwords.length != 0">
 					<view class="translate-history">
 						<view class="text-history"><text>相关词语</text></view>
-						<block v-for="(word, idx) of relatedwords" :key="idx"><meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning></block>
+						<block v-for="(word, idx) of relatedwords" :key="idx">
+							<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+						</block>
 					</view>
 				</view>
 			</view>
@@ -81,7 +83,9 @@ export default {
 			mainwords: [],
 			focus: false,
 			words: [],
-			fids: []
+			fids: [],
+			historyfids: [],
+			historywords: []
 		};
 	},
 	methods: {
@@ -118,7 +122,7 @@ export default {
 			that.mainwords.splice(0, that.mainwords.length);
 
 			this.tranlateWord = e.detail.value;
-
+			console.log(that.tranlateWord);
 			let requestData = {
 				sentence: '',
 				token: ''
@@ -133,6 +137,7 @@ export default {
 						let fids = [];
 						if (res.item[i].result != '-1') {
 							fids = res.item[i].result.split(',');
+							console.log(fids);
 						}
 						if (fids.length != 0) {
 							that.mainwordsid.push(fids[0]);
@@ -155,7 +160,9 @@ export default {
 									.then(res => {
 										console.log(res);
 										if (res.code != '301') {
+											console.log(res);
 											that.mainwords.push(res);
+											util.setFidByWord(res.word, wordRequst.fid);
 										}
 									})
 									.catch(e => {
@@ -198,6 +205,55 @@ export default {
 		textBlur(e) {
 			this.focus = false;
 		}
+	},
+
+	onLoad() {
+		let that = this;
+		let user=util.getUser();
+		let historyfids = [];
+		let historywords = [];
+		uniCloud.callFunction({
+			name: 'getHistory',
+			data: {
+				tel: user.uid
+			},
+			success: res => {
+				console.log(res);
+				console.log(res.result.data.data[0].fid);
+				if(res.length!=0){
+					historyfids = res.result.data.data[0].fid;
+					
+						for (let j = 0; j < historyfids.length; j++) {
+							let wordRequst = {
+								token: '',
+								fid: ''
+							};
+							wordRequst.token = util.getToken();
+							wordRequst.fid = historyfids[j];
+							if (wordRequst.fid != '-1') {
+								util.request(config.api.resource3, wordRequst, 'POST')
+									.then(res => {
+										console.log(res);
+										if (res.code != '301') {
+											historywords.push(res);
+											console.log(historywords);
+										}
+									})
+									.catch(e => {
+										that.loading = false;
+										util.toastError(e.data.message || e.errMsg);
+									});
+							}
+						}
+					
+				}
+			},
+			fail: err => {
+				console.log(err);
+			}
+		});
+		that.historywords = historywords;
+		that.historyfids = historyfids;
 	}
 };
 </script>
@@ -211,6 +267,7 @@ export default {
 	/* 如果您想让slot内容与导航栏左右有空隙 */
 	/* padding: 0 30rpx; */
 }
+
 .translate-content {
 	padding: 15px;
 	height: 150px;
@@ -230,6 +287,7 @@ export default {
 	border-style: solid;
 	margin: 0px auto;
 }
+
 .text-history {
 	width: 95%;
 	height: 25px;

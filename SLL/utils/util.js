@@ -78,10 +78,31 @@ const getUser = () => {
 	try {
 		var value = uni.getStorageSync(keyUser)
 		if (value) {
-			return JSON.parse(value)
+			return value;
 		}
 	} catch (e) {
 		// Do something when catch error
+		console.log(e)
+		return {}
+	}
+}
+
+const getFidByWord = (word) => {
+	try {
+		var value = uni.getStorageSync(word)
+		if (value) {
+			return value;
+		}
+	} catch (e) {
+		console.log(e)
+		return {}
+	}
+}
+
+const setFidByWord = (word,fid) => {
+	try {
+		uni.setStorageSync(word,fid)
+	} catch (e) {
 		console.log(e)
 		return {}
 	}
@@ -344,6 +365,15 @@ const isSignedToday = () => {
 	return timestampToDate(now()) == timestampToDate(getSignedAt())
 }
 
+const uniq = (array) => {
+    var temp = []; //一个新的临时数组
+    for(var i = 0; i < array.length; i++){
+        if(temp.indexOf(array[i]) == -1){
+            temp.push(array[i]);
+        }
+    }
+    return temp;
+}
 
 module.exports = {
 	formatTime,
@@ -374,4 +404,7 @@ module.exports = {
 	getSignedAt,
 	isSignedToday,
 	redirect,
+	setFidByWord,
+	getFidByWord,
+	uniq
 }

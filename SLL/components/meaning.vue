@@ -9,6 +9,10 @@
 </template>
 
 <script>
+	import config from "../config.js";
+	import util from "../utils/util.js";
+	import api from "../utils/api.js";
+	
 export default {
 	name: 'meaning',
 	data() {
@@ -17,10 +21,63 @@ export default {
 	onReady() {},
 	methods:{
 		toDetail(){
+			let user = util.getUser();
 			let that=this;
 			uni.navigateTo({
 				url: '/pages/detail/detail?word=' + that.word+ "&type="+that.type+"&interpretation="+that.interpretation+"&imgsrc="+that.imgsrc+"&videosrc="+that.videosrc,
-			})
+			});
+			
+			//获取历史记录 判断是否已存在历史记录
+			uniCloud.callFunction({
+			    name: "getHistory",
+			    data: {
+			        tel: user.uid,
+			    },
+			    success: (res) => {
+					console.log(res);
+			        console.log(res.result.data.data[0].length==0);
+					//不存在数据
+					if(res.result.data.data[0].length==0){
+						uniCloud.callFunction({
+						    name:"addHistory",
+						    data:{
+						        tel: user.uid,
+						        fid:[]
+						    },
+						    success: (res) => {
+						        console.log(res)
+						    },
+						    fail: (err) => {
+						        console.log(err)
+						    }
+						})
+					}
+					let oldhistory=res.result.data.data[0].fid;
+					
+					let fid=util.getFidByWord(that.word);
+					oldhistory.push(fid);
+					uniCloud.callFunction({
+					        name:"updateHistory",
+					        data:{
+					            tel: user.uid,
+					            fid:oldhistory
+					        },
+					        success: (res) => {
+					            console.log(res)
+					        },
+					        fail: (err) => {
+					            console.log(err)
+					        }
+					    })
+					
+
+			    },
+			    fail: (err) => {
+			        console.log(err);
+			    },
+			});
+			
+			
 		},
 	},
 	props: {

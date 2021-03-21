@@ -85,37 +85,30 @@ export default {
 		},
 		formSubmit: function(e) {
 			let that = this;
-
-			// if (config.debug) console.log("formSubmit", e);
-			// if (that.loading) return;
-
 			if (e.detail.value.password == '' || e.detail.value.username == '') {
 				util.toastError('手机号或验证码不能为空');
 				return;
 			}
-
 			that.loading = true;
-
 			let requestData = {
 				id: e.detail.value.username,
 				password: e.detail.value.password,
 				type: '2'
 			};
-
 			util.request(config.api.login, requestData, 'POST')
 				.then(res => {
 					console.log(res);
 					if (res.code == '000') {
 						// let user = res.data.user
 						let user = (user = {
-							uid: 1,
-							nickname: '我是小凡凡',
+							uid: that.telNumber,
+							nickname: '小凡凡',
 							avatar: 'http://file.bookcodes.cn/pictures/1.jpg',
 							intro: '心灵也手巧',
-							token:''
+							token: ''
 						});
-						user.token=res.token;
-						console.log("token: "+user.token);
+						user.token = res.token;
+						console.log('token: ' + user.token);
 						if (user == undefined || user.uid <= 0 || user.token == '') {
 							util.toastError('登录失败：未知错误');
 							that.loading = false;
@@ -124,7 +117,8 @@ export default {
 						util.setUser(user);
 						util.toastSuccess('登录成功');
 						setTimeout(function() {
-							let url = decodeURIComponent(that.redirect);
+							let url = '../pages/index/index';
+							// decodeURIComponent(that.redirect);
 							if (url.indexOf('?') > -1) {
 								uni.redirectTo({
 									url: url
@@ -173,7 +167,8 @@ export default {
 								util.setUser(user);
 								util.toastSuccess('登录成功');
 								setTimeout(function() {
-									util.redirect(decodeURIComponent(that.redirect));
+									// util.redirect(decodeURIComponent(that.redirect));
+									util.redirect('../pages/index/index');
 								}, 1500);
 							})
 							.catch(function(e) {
@@ -200,7 +195,6 @@ export default {
 		},
 		getTelNumber: function(e) {
 			let that = this;
-			console.log(e.detail.value);
 			that.telNumber = e.detail.value;
 		},
 		sendCode: function(e) {
@@ -259,7 +253,7 @@ image {
 	background-color: transparent;
 	margin-top: 10upx;
 	border-radius: 5%;
-	border-width: 0px 0px 0px 2px;
+	border-width: 0px 0px 0px 0px;
 	border-color: #bebfba;
 	border-style: solid;
 	line-height: 75upx;
