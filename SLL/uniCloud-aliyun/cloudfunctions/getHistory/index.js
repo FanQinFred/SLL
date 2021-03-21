@@ -7,16 +7,17 @@ exports.main = async (event, context) => {
 	let {
 		tel
 	} = event
+	var res=null;
 	// 查找数据 寻找key为 更新出现的
-	if(tel!='undefined'){
-		let res = await collection.where({
+	if (tel != undefined) {
+		res = await collection.where({
 			tel: tel
 		}).get()
-	}else{
-		let res=[];
+	} else {
+		res = {};
 	}
 
-	console.log(JSON.stringify(res));
+	// console.log(JSON.stringify(res));
 
 	return {
 		code: 200,

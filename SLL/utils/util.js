@@ -78,7 +78,7 @@ const getUser = () => {
 	try {
 		var value = uni.getStorageSync(keyUser)
 		if (value) {
-			return value;
+			return JSON.parse(value);
 		}
 	} catch (e) {
 		// Do something when catch error

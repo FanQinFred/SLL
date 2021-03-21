@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<split heightSplit="5px" widthSplit="100%"></split>
+		<!-- <split heightSplit="5px" widthSplit="100%"></split>
 		<view class="translate-history">
 			<view class="text-history"><text>识别结果</text></view>
 			<meaning></meaning>
@@ -10,17 +10,18 @@
 		<view class="translate-history">
 			<view class="text-history"><text>相关词语</text></view>
 			<meaning></meaning>
-		</view>
-		
+		</view> -->
+		<hch-menu></hch-menu>
 	</view>
 </template>
 <script>
 	
 import meaning from './meaning.vue';
 import split from './split.vue';
+import HchMune from './hch-menu/hch-menu.vue'
 
 export default {
-	components: { meaning, split },
+	components: { meaning, split,HchMune },
 
 	data() {
 		return {

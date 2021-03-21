@@ -9,36 +9,39 @@
 		<!-- 文本 -->
 		<view v-if="current == 0">
 			<view class="translate-content"><textarea @input="textareaInput" @focus="textFocus" @blur="textBlur" placeholder="请输入..."></textarea></view>
-			<split heightSplit="2px" widthSplit="100%"></split>
+			<split heightSplit="5px" widthSplit="100%"></split>
+
 			<!-- 翻译结果 -->
-			<view v-if="tranlateWord != ''">
-				<view class="translate-history">
+			
+			<view class="translate-history">
+				<view v-if="tranlateWord != ''&&mainwords!=''">
+					<view class="text-history"><text>翻译结果</text></view>
 					<block v-for="(word, idx) of mainwords" :key="idx">
 						<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
 					</block>
-				</view>
-			</view>
-			<split heightSplit="15px" widthSplit="100%"></split>
+						<split heightSplit="5px" widthSplit="100%"></split>
 
-			<!-- 翻译历史 -->
-			<view v-if="tranlateWord == '' && focus == false && words == ''">
-				<view class="translate-history">
+				</view>
+				<view v-if="tranlateWord == ''  && words == ''">
 					<view class="text-history"><text>翻译历史</text></view>
 					<block v-for="(word, idx) of historywords" :key="idx">
 						<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
 					</block>
+						<split heightSplit="5px" widthSplit="100%"></split>
+
 				</view>
-			</view>
-			<view v-else>
-				<view v-if="relatedwords.length != 0">
-					<view class="translate-history">
-						<view class="text-history"><text>相关词语</text></view>
+				<view v-else>
+					<view v-if="relatedwords.length != 0">
+					<view class="text-history"><text>相关词语</text></view>
 						<block v-for="(word, idx) of relatedwords" :key="idx">
 							<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
 						</block>
 					</view>
 				</view>
 			</view>
+
+			<split heightSplit="15px" widthSplit="100%"></split>
+
 		</view>
 		<!-- 图片 -->
 		<view v-if="current == 1"><photo :filePath="filePath"></photo></view>
@@ -92,24 +95,24 @@ export default {
 		change(index) {
 			this.current = index;
 			if (index == 1) {
-				uni.chooseImage({
-					count: 1, //默认9
-					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-					sourceType: ['camera'], //从相册选择
-					success: function(res) {
-						this.filePath = JSON.stringify(res.tempFilePaths);
-					}
-				});
+				// uni.chooseImage({
+				// 	count: 1, //默认9
+				// 	sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+				// 	sourceType: ['camera'], //从相册选择
+				// 	success: function(res) {
+				// 		this.filePath = JSON.stringify(res.tempFilePaths);
+				// 	}
+				// });
 			}
 			if (index == 2) {
-				uni.chooseVideo({
-					count: 1,
-					sourceType: ['camera'],
-					success: function(res) {
-						self.src = res.tempFilePath;
-						this.videoPath = JSON.stringify(res.tempFilePaths);
-					}
-				});
+				// uni.chooseVideo({
+				// 	count: 1,
+				// 	sourceType: ['camera'],
+				// 	success: function(res) {
+				// 		self.src = res.tempFilePath;
+				// 		this.videoPath = JSON.stringify(res.tempFilePaths);
+				// 	}
+				// });
 			}
 		},
 		textareaInput(e) {
@@ -207,22 +210,31 @@ export default {
 		}
 	},
 
-	onLoad() {
+	onShow() {
 		let that = this;
-		let user=util.getUser();
+		let user = util.getUser();
 		let historyfids = [];
 		let historywords = [];
-		uniCloud.callFunction({
-			name: 'getHistory',
-			data: {
-				tel: user.uid
-			},
-			success: res => {
-				console.log(res);
-				console.log(res.result.data.data[0].fid);
-				if(res.length!=0){
-					historyfids = res.result.data.data[0].fid;
-					
+		if (user == undefined || user.token == undefined) {
+			user = {
+				uid: '0',
+				nickname: '请点我登录',
+				avatar: '../static/images/logo.jpg',
+				intro: '',
+				token: ''
+			};
+		} else {
+			uniCloud.callFunction({
+				name: 'getHistory',
+				data: {
+					tel: user.uid
+				},
+				success: (res) => {
+					console.log(res);
+					if (res.result.data.data.length != 0) {
+						console.log(res.result.data.data[0].fid);
+						historyfids = res.result.data.data[0].fid;
+
 						for (let j = 0; j < historyfids.length; j++) {
 							let wordRequst = {
 								token: '',
@@ -245,13 +257,13 @@ export default {
 									});
 							}
 						}
-					
+					}
+				},
+				fail: err => {
+					console.log(err);
 				}
-			},
-			fail: err => {
-				console.log(err);
-			}
-		});
+			});
+		}
 		that.historywords = historywords;
 		that.historyfids = historyfids;
 	}

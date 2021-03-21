@@ -21,13 +21,6 @@
 					<view class="col text-right" @click="findPassword">用户协议</view>
 				</view>
 				<view class="row"><button class="btn-submit btn-block login-button" :loading="loading" form-type="submit">确认登陆</button></view>
-				<!-- #ifdef MP-WEIXIN -->
-				<!-- <view class="row">
-					<button @getuserinfo='wechatLogin' :loading='loadingWechat' open-type="getUserInfo" class='btn-auth btn-block'>
-						微信登录
-					</button>
-				</view> -->
-				<!-- #endif -->
 				<view class="row"><button @click="toReg" class="btn-login btn-block login-button">注册账号</button></view>
 			</form>
 		</view>
@@ -45,7 +38,7 @@ export default {
 		return {
 			loading: false,
 			about: config.info.about,
-			redirect: encodeURIComponent('/pages/me/me'),
+			redirect: encodeURIComponent('/pages/index/index'),
 			loadingWechat: false,
 			waitingtime: '发送验证码',
 			telNumber: '',
@@ -80,7 +73,7 @@ export default {
 		findPassword: function(e) {
 			uni.showModal({
 				title: '温馨提示',
-				content: '目前BookChat暂不支持找回密码的功能，如果忘记了密码，请打开书栈网(https://www.bookstack.cn)将密码找回'
+				content: '目前暂不支持找回密码的功能'
 			});
 		},
 		formSubmit: function(e) {
@@ -99,17 +92,16 @@ export default {
 				.then(res => {
 					console.log(res);
 					if (res.code == '000') {
-						// let user = res.data.user
-						let user = (user = {
+						let user = {
 							uid: that.telNumber,
 							nickname: '小凡凡',
 							avatar: 'http://file.bookcodes.cn/pictures/1.jpg',
 							intro: '心灵也手巧',
 							token: ''
-						});
+						};
 						user.token = res.token;
 						console.log('token: ' + user.token);
-						if (user == undefined || user.uid <= 0 || user.token == '') {
+						if (user == undefined || user.token == '') {
 							util.toastError('登录失败：未知错误');
 							that.loading = false;
 							return;
@@ -117,18 +109,12 @@ export default {
 						util.setUser(user);
 						util.toastSuccess('登录成功');
 						setTimeout(function() {
-							let url = '../pages/index/index';
-							// decodeURIComponent(that.redirect);
-							if (url.indexOf('?') > -1) {
-								uni.redirectTo({
-									url: url
-								});
-							} else {
-								uni.switchTab({
-									url: url
-								});
-							}
+							let url = '/pages/index/index';
+							uni.navigateTo({
+								url: '/pages/index/index'
+							});
 						}, 1500);
+						that.loading = false;
 					}
 				})
 				.catch(e => {
@@ -136,62 +122,6 @@ export default {
 					that.loading = false;
 					util.toastError(e.data.message || e.errMsg);
 				});
-		},
-		wechatLogin: function(e) {
-			let that = this;
-			let weUser = e.detail;
-
-			if (that.loadingWechat) return;
-			that.loadingWechat = true;
-
-			uni.login({
-				success(res) {
-					if (config.debug) console.log('微信登录', res, weUser);
-					if (res.code) {
-						util.request(
-							config.api.loginByWechat,
-							{
-								code: res.code,
-								userInfo: weUser.rawData
-							},
-							'POST'
-						)
-							.then(function(res) {
-								// 登录成功
-								let user = res.data.user;
-								if (user == undefined || user.uid <= 0 || user.token == '') {
-									util.toastError('登录失败：未知错误');
-									that.loadingWechat = false;
-									return;
-								}
-								util.setUser(user);
-								util.toastSuccess('登录成功');
-								setTimeout(function() {
-									// util.redirect(decodeURIComponent(that.redirect));
-									util.redirect('../pages/index/index');
-								}, 1500);
-							})
-							.catch(function(e) {
-								// 如果是 401，则跳转到信息绑定页面，否则直接提示相关错误信息
-								if (config.debug) console.log(e);
-								if (e.statusCode == 401) {
-									util.setWeChatUser(weUser);
-									uni.navigateTo({
-										url: '/pages/bind/bind?redirect=' + that.redirect + '&sess=' + encodeURIComponent(e.data.data.sess)
-									});
-								} else {
-									util.toastError(e.data.message || e.errMsg);
-								}
-								that.loadingWechat = false;
-							});
-					} else {
-						util.toastError('登录失败！' + res.errMsg);
-					}
-				},
-				fail: function(e) {
-					util.toastError(e.errMsg);
-				}
-			});
 		},
 		getTelNumber: function(e) {
 			let that = this;

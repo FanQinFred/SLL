@@ -1,10 +1,12 @@
 <template>
+<view>
 	<view class="box" @click="toDetail">
 		<view class="word">
 			<text style="font-weight: bold; font-family: '楷体'; margin-left: 5px;">{{ type }}. {{ word }}</text>
 		</view>
 		<view class="picture"><image style="width: 120px; height: 120px" mode="aspectFill" :src="imgsrc"></image></view>
 		<view class="interpretation" style="font-weight: normal; font-family: '楷体'">{{ interpretation }}</view>
+	</view>
 	</view>
 </template>
 
@@ -35,9 +37,9 @@ export default {
 			    },
 			    success: (res) => {
 					console.log(res);
-			        console.log(res.result.data.data[0].length==0);
+			        // console.log(res.result.data.data[0].length==0);
 					//不存在数据
-					if(res.result.data.data[0].length==0){
+					if(res.result.data.data.length==0){
 						uniCloud.callFunction({
 						    name:"addHistory",
 						    data:{
@@ -52,7 +54,10 @@ export default {
 						    }
 						})
 					}
-					let oldhistory=res.result.data.data[0].fid;
+					let oldhistory=[];
+					if(res.result.data.data.length!=0){
+						oldhistory=res.result.data.data[0].fid;
+					}
 					
 					let fid=util.getFidByWord(that.word);
 					oldhistory.push(fid);
