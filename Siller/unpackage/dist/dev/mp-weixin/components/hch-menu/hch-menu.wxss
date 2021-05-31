@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.menu-content .icon.data-v-392ed4e4 {
+  position: fixed;
+  bottom: 120rpx;
+  right: 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.menu-content .text-menu.data-v-392ed4e4 {
+  width: 86rpx;
+  height: 86rpx;
+}
+.menu-content .menu.data-v-392ed4e4 {
+  z-index: 1;
+  opacity: 1;
+}
+.menu-content .menuOpen.data-v-392ed4e4 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.menu-content .open.data-v-392ed4e4 {
+  opacity: 1;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.menu-content .open1.data-v-392ed4e4 {
+  right: 80rpx;
+  bottom: 250rpx;
+}
+.menu-content .open2.data-v-392ed4e4 {
+  right: 190rpx;
+  bottom: 210rpx;
+}
+.menu-content .open3.data-v-392ed4e4 {
+  right: 230rpx;
+  bottom: 100rpx;
+}
+.menu-content .open4.data-v-392ed4e4 {
+  right: 160rpx;
+  bottom: 20rpx;
+}
+

@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "components/photo",
+    "components/meaning",
+    "pages/dictionary/dictionary",
+    "pages/login/login",
+    "pages/reg/reg",
+    "pages/collection/collection",
+    "pages/history/history",
+    "uview-ui/components/u-full-screen/u-full-screen"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Siller",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "navigationStyle": "custom"
+  },
+  "permission": {},
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

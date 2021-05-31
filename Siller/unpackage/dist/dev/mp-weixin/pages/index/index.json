@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "Siller",
+  "usingComponents": {
+    "u-navbar": "/uview-ui/components/u-navbar/u-navbar",
+    "u-sticky": "/uview-ui/components/u-sticky/u-sticky",
+    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
+    "meaning": "/components/meaning",
+    "split": "/components/split",
+    "photo": "/components/photo",
+    "video-inspect": "/components/video",
+    "headernav": "/components/headernav"
+  }
+}

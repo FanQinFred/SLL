@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.box {
+  margin: 5px auto;
+  position: relative;
+  width: 95%;
+  height: 190px;
+  border-radius: 10%;
+  box-shadow: 2px 2px 2px 2px #d4d0d0;
+}
+.word {
+  border-radius: 5%;
+  background-color: #f5ecf7;
+  line-height: 40px;
+  vertical-align: middle;
+  position: absolute;
+  height: 40px;
+  width: 95%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 10px;
+  overflow: hidden;
+}
+.picture {
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+.interpretation {
+  height: 120px;
+  width: 60%;
+  position: absolute;
+  top: 55px;
+  left: 141px;
+  overflow: hidden;
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.translate-history.data-v-5b426107 {
+  height: auto;
+  width: 95%;
+  border-color: #e1e1e1;
+  border-width: 0px;
+  border-style: solid;
+  margin: 0px auto;
+}
+.text-history.data-v-5b426107 {
+  width: 95%;
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: '楷体';
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.slot-wrap.data-v-57280228 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  /* 如果您想让slot内容占满整个导航栏的宽度 */
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  /* 如果您想让slot内容与导航栏左右有空隙 */
+  /* padding: 0 30rpx; */
+}
+.translate-content.data-v-57280228 {
+  padding: 15px;
+  height: 150px;
+  width: 95%;
+  border-color: #e8e8e8;
+  border-width: 0px;
+  border-style: solid;
+  margin: 0px auto;
+  border-radius: 5%;
+}
+.translate-history.data-v-57280228 {
+  height: auto;
+  width: 95%;
+  border-color: #e1e1e1;
+  border-width: 0px;
+  border-style: solid;
+  margin: 0px auto;
+}
+.text-history.data-v-57280228 {
+  width: 95%;
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: '楷体';
+}
+

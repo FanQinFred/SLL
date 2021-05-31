@@ -1,0 +1,1 @@
+<view><view class="split" style="{{'height:'+(heightSplit)+';'+('width:'+(widthSplit)+';')}}"></view></view>

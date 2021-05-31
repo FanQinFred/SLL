@@ -1,0 +1,1 @@
+<view><u-navbar vue-id="3db16520-1" back-text="返回" title="含义" bind:__l="__l"></u-navbar><description vue-id="3db16520-2" type="{{type}}" interpretation="{{interpretation}}" word="{{word}}" imgsrc="{{imgsrc}}" videosrc="{{videosrc}}" bind:__l="__l"></description></view>

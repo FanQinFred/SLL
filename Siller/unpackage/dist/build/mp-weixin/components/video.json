@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "meaning": "/components/meaning",
+    "split": "/components/split",
+    "video-mune": "/components/hch-menu/video-menu"
+  }
+}

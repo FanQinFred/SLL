@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-navbar": "/uview-ui/components/u-navbar/u-navbar",
+    "meaning": "/components/meaning",
+    "split": "/components/split",
+    "photo": "/components/photo",
+    "video-inspect": "/components/video",
+    "headernav": "/components/headernav"
+  }
+}
