@@ -1,5 +1,6 @@
 {
-  "navigationBarTitleText": "Siller",
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "hch-menu": "/components/hch-menu/hch-menu",
     "meaning": "/components/meaning",

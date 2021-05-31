@@ -1,14 +1,14 @@
 <template>
 	<view>
 		<!-- 头部导航 -->
-		<u-navbar :is-back="false" back-text="" title=""><headernav class="slot-wrap"></headernav></u-navbar>
+		<u-navbar :is-back="false" back-text="" title="Siller"></headernav></u-navbar>
 		<!-- <split heightSplit="5px" widthSplit="100%"></split> -->
 		<!-- 翻译类型选择 -->
 		<u-sticky offset-top="140"><u-tabs active-color="#b3c5ff" :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs></u-sticky>
 		<split heightSplit="1px" widthSplit="100%"></split>
 		<!-- 文本 -->
 		<view v-if="current == 0">
-			<view class="translate-content"><textarea @input="textareaInput" @focus="textFocus" @blur="textBlur" placeholder="请输入..."></textarea></view>
+			<view class="translate-content"><textarea @input="textareaInput" @focus="textFocus" @blur="textBlur" placeholder="请输入 测试 进行示例展示"></textarea></view>
 			<split heightSplit="5px" widthSplit="100%"></split>
 
 			<!-- 翻译结果 -->

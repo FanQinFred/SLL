@@ -1,5 +1,21 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["components/meaning"],{
 
+/***/ 113:
+/*!******************************************************************************************!*\
+  !*** C:/Users/fanqi/Documents/GitHub/SLL/Siller/main.js?{"page":"components%2Fmeaning"} ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _meaning = _interopRequireDefault(__webpack_require__(/*! ./components/meaning.vue */ 53));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_meaning.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
 /***/ 53:
 /*!*************************************************************************!*\
   !*** C:/Users/fanqi/Documents/GitHub/SLL/Siller/components/meaning.vue ***!
@@ -252,23 +268,7 @@ __webpack_require__.r(__webpack_exports__);
     if(false) { var cssReload; }
   
 
-/***/ }),
-
-/***/ 76:
-/*!******************************************************************************************!*\
-  !*** C:/Users/fanqi/Documents/GitHub/SLL/Siller/main.js?{"page":"components%2Fmeaning"} ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _meaning = _interopRequireDefault(__webpack_require__(/*! ./components/meaning.vue */ 53));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_meaning.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
-
 /***/ })
 
-},[[76,"common/runtime","common/vendor"]]]);
+},[[113,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/components/meaning.js.map

@@ -13,7 +13,7 @@
 					</view>
 					<view class="row font-lv2">
 						<view class="col-3">验证码</view>
-						<view class="col-9"><input type="number" maxlength="8" password name="password" placeholder="请输入验证码" /></view>
+						<view class="col-9"><input type="number" maxlength="8" name="password" placeholder="请输入验证码" /></view>
 					</view>
 				</view>
 				<view class="row mgb-30 font-lv3 color-grey">

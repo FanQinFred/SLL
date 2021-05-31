@@ -4,6 +4,27 @@
  * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
+.box1 {
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.box2 {
+  width: 100%;
+  height: 280px;
+  margin-top: 30px;
+  position: relative;
+}
+.box3 {
+  width: 100%;
+  height: 240px;
+  margin-top: 30px;
+  position: relative;
+}
 .box {
   margin: 5px auto;
   position: relative;
@@ -28,48 +49,36 @@
 }
 .picture {
   position: absolute;
-  top: 55px;
-  left: 10px;
-  width: 120px;
-  height: 120px;
+  width: 240px;
+  height: 240px;
   overflow: hidden;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 .interpretation {
+  top: 20px;
   height: 120px;
-  width: 60%;
+  width: 80%;
   position: absolute;
-  top: 55px;
-  left: 141px;
   overflow: hidden;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
-
-
-.split{
-	background-color: #fff9f7;
-}
-
-@charset "UTF-8";
-/**
- * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
- * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
- * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
- */
-.translate-history.data-v-5b426107 {
+.video {
+  text-align: center;
+  background-color: #006666;
+  top: 60px;
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
   height: auto;
-  width: 95%;
-  border-color: #e1e1e1;
-  border-width: 0px;
-  border-style: solid;
-  margin: 0px auto;
-}
-.text-history.data-v-5b426107 {
-  width: 95%;
-  height: 25px;
-  line-height: 25px;
-  vertical-align: middle;
-  margin: 10px auto;
-  font-size: 20px;
-  font-weight: bolder;
-  font-family: '楷体';
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 5%;
+  box-shadow: 2px 2px 2px 2px #d4d0d0;
+  z-index: 1;
 }
 

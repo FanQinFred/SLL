@@ -43,6 +43,11 @@
   overflow: hidden;
 }
 
+
+.split{
+	background-color: #fff9f7;
+}
+
 @charset "UTF-8";
 /**
  * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
@@ -66,6 +71,237 @@
   font-size: 20px;
   font-weight: bolder;
   font-family: '楷体';
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.menu-content .icon.data-v-3d9eafb6 {
+  position: fixed;
+  bottom: 120rpx;
+  right: 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.menu-content .text-menu.data-v-3d9eafb6 {
+  width: 86rpx;
+  height: 86rpx;
+}
+.menu-content .menu.data-v-3d9eafb6 {
+  z-index: 1;
+  opacity: 1;
+}
+.menu-content .menuOpen.data-v-3d9eafb6 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.menu-content .open.data-v-3d9eafb6 {
+  opacity: 1;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+.menu-content .open1.data-v-3d9eafb6 {
+  right: 80rpx;
+  bottom: 250rpx;
+}
+.menu-content .open2.data-v-3d9eafb6 {
+  right: 190rpx;
+  bottom: 210rpx;
+}
+.menu-content .open3.data-v-3d9eafb6 {
+  right: 230rpx;
+  bottom: 100rpx;
+}
+.menu-content .open4.data-v-3d9eafb6 {
+  right: 160rpx;
+  bottom: 20rpx;
+}
+
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.translate-history.data-v-457e2a60 {
+  height: auto;
+  width: 95%;
+  border-color: #e1e1e1;
+  border-width: 0px;
+  border-style: solid;
+  margin: 0px auto;
+}
+.text-history.data-v-457e2a60 {
+  width: 95%;
+  height: 25px;
+  line-height: 25px;
+  vertical-align: middle;
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: '楷体';
+}
+
+
+page {
+  color: $u-main-color;
+  font-size: 28rpx;
+}
+.logoword {
+  height: 38px;
+  line-height: 48px;
+  margin: 0 auto;
+  padding-right: 53px;
+  font-size: 21px;
+  font-weight: bold;
+}
+.box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  /* 如果您想让slot内容占满整个导航栏的宽度 */
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  /* 如果您想让slot内容与导航栏左右有空隙 */
+  padding: 0 30rpx;
+  height: 48px;
+  width: 100%;
+}
+.menu {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  vertical-align: middle;
+  /* line-height: 48px; */
+}
+.func {
+  margin-top: 50px;
+}
+.base-padding {
+  box-sizing: border-box;
+  padding: 0rpx 30rpx;
+}
+.row {
+  background-color: #fff;
+  margin-bottom: 10rpx;
+  padding: 30rpx;
+}
+.font-lv2 {
+  font-size: 16px !important;
+}
+.base-info {
+  padding-top: 0rpx;
+  padding-bottom: 0rpx;
+}
+.col-12 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+image.me-icon {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+  position: relative;
+  top: -4rpx;
+}
+.pull-right {
+  float: right;
+}
+.username {
+  margin: 15rpx auto;
+}
+.color-grey {
+  color: #888;
+}
+.font-lv3 {
+  font-size: 14px !important;
+}
+.user {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.user .text-muted {
+  text-align: center;
+}
+.user image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 90rpx;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  display: block;
+}
+.user-func {
+  line-height: 40rpx;
+  border: 1px solid #000000;
+}
+.user-func {
+  line-height: 40rpx;
+  border: 1px solid #000000;
+}
+.user-func .func-item {
+  line-height: 300%;
+  border-bottom: 1rpx dashed #f1f1f1;
+  padding: 0;
+  margin: 0;
+}
+.user-func .color-red {
+  margin-right: 8rpx;
+}
+.user-intro {
+  width: 100%;
+  text-align: center;
+}
+image {
+  display: inline-block;
+}
+.base-info image {
+  margin-right: 30rpx !important;
+}
+.base-info image.pull-right {
+  margin-right: 0 !important;
+  top: 0;
+}
+.base-info {
+  padding-top: 0rpx;
+  padding-bottom: 0rpx;
+}
+.base-info .col-12 {
+  border-bottom: 1px solid #f6f6f6;
+  padding-bottom: 30rpx;
+  padding-top: 30rpx;
+  color: #666;
+}
+.base-info .col-12:last-of-type {
+  margin-bottom: 0;
+  border-bottom: 0;
 }
 
 @charset "UTF-8";

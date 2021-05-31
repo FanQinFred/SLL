@@ -1,5 +1,6 @@
 {
-  "component": true,
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "meaning": "/components/meaning",
     "split": "/components/split",
