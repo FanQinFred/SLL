@@ -14,7 +14,7 @@
 }
 .word {
   border-radius: 5%;
-  background-color: #f5ecf7;
+  background-color: #fcfaff;
   line-height: 40px;
   vertical-align: middle;
   position: absolute;

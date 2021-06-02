@@ -3,6 +3,8 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "hch-menu": "/components/hch-menu/hch-menu",
+    "u-image": "/uview-ui/components/u-image/u-image",
+    "u-popup": "/uview-ui/components/u-popup/u-popup",
     "meaning": "/components/meaning",
     "split": "/components/split",
     "hch-mune": "/components/hch-menu/hch-menu"

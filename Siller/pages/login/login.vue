@@ -120,7 +120,7 @@ export default {
 				.catch(e => {
 					if (config.debug) console.log(e);
 					that.loading = false;
-					util.toastError(e.data.message || e.errMsg);
+					util.toastError(e);
 				});
 		},
 		getTelNumber: function(e) {
@@ -157,7 +157,7 @@ export default {
 					console.log(res);
 				})
 				.catch(e => {
-					util.toastError(e.data.message || e.errMsg);
+					util.toastError(e);
 				});
 		}
 	}

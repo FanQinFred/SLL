@@ -256,7 +256,7 @@ var _default = { components: {}, data: function data() {return { loading: false,
       catch(function (e) {
         if (_config.default.debug) console.log(e);
         that.loading = false;
-        _util.default.toastError(e.data.message || e.errMsg);
+        _util.default.toastError(e);
       });
     },
     getTelNumber: function getTelNumber(e) {
@@ -293,7 +293,7 @@ var _default = { components: {}, data: function data() {return { loading: false,
         console.log(res);
       }).
       catch(function (e) {
-        _util.default.toastError(e.data.message || e.errMsg);
+        _util.default.toastError(e);
       });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

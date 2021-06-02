@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<!-- 头部导航 -->
-		<u-navbar :is-back="false" back-text="" title="Siller"></headernav></u-navbar>
+		<u-navbar :is-back="false" back-text="" title="Siller"><headernav></headernav></u-navbar>
 		<!-- <split heightSplit="5px" widthSplit="100%"></split> -->
 		<!-- 翻译类型选择 -->
 		<u-sticky offset-top="140"><u-tabs active-color="#b3c5ff" :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs></u-sticky>
@@ -22,16 +22,20 @@
 					<split heightSplit="5px" widthSplit="100%"></split>
 				</view>
 				<view v-if="tranlateWord == '' && words == ''">
-					<view class="text-history" @click="toHistory">
-						<text>
-							翻译历史
-							<text style="font-weight:200; margin-left: 15px;">>></text>
-						</text>
+					<view v-if="historywords != ''">
+						<view class="text-history" @click="toHistory">
+							<text>
+								翻译历史
+								<text style="font-weight:200; margin-left: 15px;">>></text>
+							</text>
+						</view>
+						<block v-for="(word, idx) of historywords" :key="idx">
+							<view v-if="idx < 2">
+								<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+							</view>
+						</block>
+						<split heightSplit="5px" widthSplit="100%"></split>
 					</view>
-					<block v-for="(word, idx) of historywords" :key="idx">
-						<view v-if="idx < 2"><meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning></view>
-					</block>
-					<split heightSplit="5px" widthSplit="100%"></split>
 				</view>
 				<view v-else>
 					<view v-if="relatedwords.length != 0">
@@ -124,7 +128,7 @@ export default {
 		},
 		textareaInput(e) {
 			let that = this;
-			
+
 			let user = util.getUser();
 			console.log('user: ' + user);
 			if (user == undefined || user.token == undefined) {
@@ -141,7 +145,7 @@ export default {
 					}
 				});
 			}
-			
+
 			//清空变量
 			that.words.splice(0, that.words.length);
 			that.relatedwordsid.splice(0, that.relatedwords.length);

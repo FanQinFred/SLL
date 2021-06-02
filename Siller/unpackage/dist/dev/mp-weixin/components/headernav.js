@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uPopup: function() {
-    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 191))
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 205))
   }
 }
 var render = function() {
@@ -135,25 +135,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -255,27 +236,26 @@ var _util = _interopRequireDefault(__webpack_require__(/*! ../utils/util.js */ 5
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { name: 'headernav', data: function data() {return { menuShow: false, redirect: encodeURIComponent('/pages/index/index'), info: {}, user: {} };}, onLoad: function onLoad(op) {this.info = _config.default.info;}, onShow: function onShow() {this.initUser();}, beforeUpdate: function beforeUpdate() {console.log("Headernav mounted");this.initUser();}, methods: { toMenu: function toMenu() {var that = this;that.menuShow = !that.menuShow;console.log(that.menuShow);}, userLoginEvent: function userLoginEvent(e) {console.log(this.user.uid);var that = this;if (that.user.uid == 0) {console.log(this.user.uid);that.menuShow = false;uni.navigateTo({ url: '/pages/login/login?redirect=' + this.redirect });}}, logout: function logout(e) {var that = this;uni.showModal({ title: '温馨提示', content: '您确定要退出登录吗？', duration: 2000, image: '../static/img/back.png', success: function success(res) {if (res.confirm) {var requestData = { token: '', type: '1' };requestData.token = that.user.token;_util.default.request(_config.default.api.unLogin); // 只需调用，不需要处理返回结果
-            _util.default.clearUser();_util.default.toastSuccess('退出成功');that.initUser();_util.default.setSignedAt(0);that.menuShow = false;uni.redirectTo({ url: '/pages/index/index' });}} });}, initUser: function initUser() {var that = this;var user = _util.default.getUser();console.log('user: ' + user);if (user == undefined || user.token == undefined) {console.log("user == undefined || user.token == undefined");user = { uid: '0',
+var _default = { name: 'headernav', data: function data() {return { menuShow: false, redirect: encodeURIComponent('/pages/index/index'), info: {}, user: {} };}, onLoad: function onLoad(op) {this.info = _config.default.info;}, onShow: function onShow() {this.initUser();}, beforeUpdate: function beforeUpdate() {console.log('Headernav mounted');this.initUser();}, methods: { toMenu: function toMenu() {var that = this;that.menuShow = !that.menuShow;console.log(that.menuShow);}, userLoginEvent: function userLoginEvent(e) {console.log(this.user.uid);var that = this;if (that.user.uid == 0) {console.log(this.user.uid);that.menuShow = false;uni.navigateTo({ url: '/pages/login/login?redirect=' + this.redirect });}}, logout: function logout(e) {var that = this;uni.showModal({ title: '温馨提示', content: '您确定要退出登录吗？', duration: 2000, image: '../static/img/back.png', success: function success(res) {if (res.confirm) {var requestData = { token: '', type: '1' };requestData.token = that.user.token;_util.default.request(_config.default.api.unLogin); // 只需调用，不需要处理返回结果
+            _util.default.clearUser();_util.default.toastSuccess('退出成功');
+            that.initUser();
+            _util.default.setSignedAt(0);
+            that.menuShow = false;
+            uni.redirectTo({
+              url: '/pages/index/index' });
+
+          }
+        } });
+
+    },
+    initUser: function initUser() {
+      var that = this;
+      var user = _util.default.getUser();
+      console.log('user: ' + user);
+      if (user == undefined || user.token == undefined) {
+        console.log('user == undefined || user.token == undefined');
+        user = {
+          uid: '0',
           nickname: '请点我登录',
           avatar: '/static/images/logo.jpg',
           intro: '心灵也手巧' };

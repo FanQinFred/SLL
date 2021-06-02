@@ -488,6 +488,12 @@ __webpack_require__.r(__webpack_exports__);
 var components = {
   hchMenu: function() {
     return __webpack_require__.e(/*! import() | components/hch-menu/hch-menu */ "components/hch-menu/hch-menu").then(__webpack_require__.bind(null, /*! @/components/hch-menu/hch-menu.vue */ 184))
+  },
+  uImage: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-image/u-image */ "uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-image/u-image.vue */ 257))
+  },
+  uPopup: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 191))
   }
 }
 var render = function() {
@@ -551,6 +557,30 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _meaning = _interopRequireDefault(__webpack_require__(/*! ./meaning.vue */ 53));
 var _split = _interopRequireDefault(__webpack_require__(/*! ./split.vue */ 60));
 
@@ -580,27 +610,32 @@ var _util = _interopRequireDefault(__webpack_require__(/*! ../utils/util.js */ 5
 //
 //
 //
-var HchMune = function HchMune() {__webpack_require__.e(/*! require.ensure | components/hch-menu/hch-menu */ "components/hch-menu/hch-menu").then((function () {return resolve(__webpack_require__(/*! ./hch-menu/hch-menu.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { meaning: _meaning.default, split: _split.default, HchMune: HchMune }, data: function data() {return { imgPath: '', filePath: '', mainwords: [] };}, props: {}, watch: { filePath: function filePath(val, oldVal) {var that = this;console.log('filePath = ' + val + ' , oldValue = ' + oldVal);var fileRequst = { token: '' };fileRequst.token = _util.default.getToken();console.log(fileRequst);_util.default.request(_config.default.api.transfor1, fileRequst, 'POST').then(function (res) {var items = res.item;
-        console.log(items.length);
-
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].result == '') {
-            items[i].result = '1';
-          }
-          if (items[i].result != '') {
-            var wordRequst = {
-              token: '',
-              fid: '' };
-
-            wordRequst.token = _util.default.getToken();
-            wordRequst.fid = items[i].result;
-            if (wordRequst.fid != '-1') {
-              _util.default.request(_config.default.api.resource3, wordRequst, 'POST').
-              then(function (res) {
-                console.log(res);
-                if (res.code != '301') {
-                  console.log(res);
-                  that.mainwords.push(res);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var HchMune = function HchMune() {__webpack_require__.e(/*! require.ensure | components/hch-menu/hch-menu */ "components/hch-menu/hch-menu").then((function () {return resolve(__webpack_require__(/*! ./hch-menu/hch-menu.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { meaning: _meaning.default, split: _split.default, HchMune: HchMune }, data: function data() {return { imgPath: '', filePath: '', mainwords: [], show: false };}, props: {}, watch: { filePath: function filePath(val, oldVal) {var that = this;console.log('filePath = ' + val + ' , oldValue = ' + oldVal);var fileRequst = { token: '' };fileRequst.token = _util.default.getToken();console.log(fileRequst);_util.default.request(_config.default.api.transfor1, fileRequst, 'POST').then(function (res) {var items = res.item;console.log(res);console.log('items.length');console.log(items.length);for (var i = 0; i < items.length; i++) {if (items[i].result == '') {items[i].result = '1';}if (items[i].result != '') {var wordRequst = { token: '', fid: '' };wordRequst.token = _util.default.getToken();wordRequst.fid = items[i].result;if (wordRequst.fid != '-1') {_util.default.request(_config.default.api.resource3, wordRequst, 'POST').then(function (res) {console.log(res);if (res.code != '301') {console.log(res);that.mainwords.push(res);console.log(res);
+                  console.log('11111111111');
                 }
               }).
               catch(function (e) {
@@ -615,6 +650,7 @@ var HchMune = function HchMune() {__webpack_require__.e(/*! require.ensure | com
         that.loading = false;
         _util.default.toastError(e.data.message || e.errMsg);
       });
+      that.show = true;
     } },
 
 
@@ -732,7 +768,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  uPopup: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 191))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -792,6 +832,67 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _meaning = _interopRequireDefault(__webpack_require__(/*! ./meaning.vue */ 53));
 var _split = _interopRequireDefault(__webpack_require__(/*! ./split.vue */ 60));
 var _videoMenu = _interopRequireDefault(__webpack_require__(/*! ./hch-menu/video-menu.vue */ 79));
@@ -819,57 +920,69 @@ var _util = _interopRequireDefault(__webpack_require__(/*! ../utils/util.js */ 5
 //
 //
 //
-var _default = { components: { meaning: _meaning.default, split: _split.default, VideoMune: _videoMenu.default }, data: function data() {return { imgPath: '', filePath: '', mainwords: [] };}, props: {}, watch: { filePath: function filePath(val, oldVal) {var that = this;console.log('filePath = ' + val + ' , oldValue = ' + oldVal);var fileRequst = { token: '' };fileRequst.token = _util.default.getToken();console.log(fileRequst);_util.default.request(_config.default.api.transfor1, fileRequst, 'POST').
-      then(function (res) {
-        var items = res.item;
-        console.log(items.length);
-
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].result == '') {
-            items[i].result = '1';
-          }
-          if (items[i].result != '') {
-            var wordRequst = {
-              token: '',
-              fid: '' };
-
-            wordRequst.token = _util.default.getToken();
-            wordRequst.fid = items[i].result;
-            if (wordRequst.fid != '-1') {
-              _util.default.request(_config.default.api.resource3, wordRequst, 'POST').
-              then(function (res) {
-                console.log(res);
-                if (res.code != '301') {
-                  console.log(res);
-                  that.mainwords.push(res);
-                }
-              }).
-              catch(function (e) {
-                that.loading = false;
-                _util.default.toastError(e.data.message || e.errMsg);
-              });
-            }
-          }
-        }
-      }).
-      catch(function (e) {
-        that.loading = false;
-        _util.default.toastError(e.data.message || e.errMsg);
-      });
-    } },
-
-
-  methods: {
-    returnItem: function returnItem(filePath) {
-      console.log(filePath);
-      this.filePath = filePath;
-    } },
-
-  onLoad: function onLoad(e) {
-    this.imgPath = e.filePath;
-    console.log(e.filePath);
-  },
-  onShow: function onShow(e) {} };exports.default = _default;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { components: { meaning: _meaning.default, split: _split.default, VideoMune: _videoMenu.default }, data: function data() {return { imgPath: '', filePath: '', mainwords: [], show: false, showloading: false };}, props: {}, watch: { filePath: function filePath(val, oldVal) {var that = this;that.mainwords = [];that.show = true; // that.showloading = false;
+      console.log('filePath = ' + val + ' , oldValue = ' + oldVal);var fileRequst = { token: '' };fileRequst.token = _util.default.getToken();console.log(fileRequst);_util.default.request(_config.default.api.transfor1, fileRequst, 'POST').then(function (res) {var items = res.item;console.log(items.length);for (var i = 0; i < items.length; i++) {if (items[i].result == '') {items[i].result = '1';}if (items[i].result != '') {var wordRequst = { token: '', fid: '' };wordRequst.token = _util.default.getToken();wordRequst.fid = items[i].result;if (wordRequst.fid != '-1') {_util.default.request(_config.default.api.resource3, wordRequst, 'POST').then(function (res) {console.log(res);if (res.code != '301') {console.log(res);that.mainwords.push(res);}}).catch(function (e) {that.loading = false;_util.default.toastError(e.data.message || e.errMsg);});}}}}).catch(function (e) {that.loading = false;_util.default.toastError(e.data.message || e.errMsg);});} }, methods: { returnItem: function returnItem(filePath) {console.log(filePath);this.filePath = filePath;} }, onLoad: function onLoad(e) {this.imgPath = e.filePath;console.log(e.filePath);}, onShow: function onShow(e) {} };exports.default = _default;
 
 /***/ }),
 /* 79 */
@@ -946,7 +1059,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  uLoading: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-loading/u-loading */ "uview-ui/components/u-loading/u-loading").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-loading/u-loading.vue */ 226))
+  },
+  uNoticeBar: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-notice-bar/u-notice-bar */ "uview-ui/components/u-notice-bar/u-notice-bar").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-notice-bar/u-notice-bar.vue */ 265))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -992,6 +1112,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _config = _interopRequireDefault(__webpack_require__(/*! ../../config.js */ 50));
 var _util = _interopRequireDefault(__webpack_require__(/*! ../../utils/util.js */ 51));
 var _api = _interopRequireDefault(__webpack_require__(/*! ../../utils/api.js */ 52));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
@@ -1003,8 +1127,13 @@ var _api = _interopRequireDefault(__webpack_require__(/*! ../../utils/api.js */ 
 //
 //
 //
-var _default = { data: function data() {return { openFlag: false, //是否展开菜单
-      filePath: '1.jpg' };},
+//
+//
+//
+//
+var _default = { data: function data() {return { openFlag: true, //是否展开菜单
+      filePath: '1.jpg', show: false, showloading: false, list: ['正在上传文件...'] };
+  },
   props: {},
 
 
@@ -1013,6 +1142,56 @@ var _default = { data: function data() {return { openFlag: false, //是否展开
       this.openFlag = !this.openFlag;
     },
     clickCamera: function clickCamera() {
+      var that = this;
+      var requestData = {
+        token: '',
+        fileName: '' };
+
+      requestData.token = _util.default.getToken();
+
+      uni.chooseVideo({
+        sourceType: ['camera'], //从相册选择
+        success: function success(chooseImageRes) {
+          var tempFilePath = chooseImageRes.tempFilePath;
+          requestData.fileName = tempFilePath.substring(tempFilePath.lastIndexOf("/") + 1);
+          console.log(requestData.fileName);
+          // 上传文件部分
+          console.log('文件上传');
+          that.show = true;
+          that.showloading = true;
+          that.openFlag = false;
+          uni.uploadFile({
+
+            url: 'https://dactylology.frogking.cn/fileService/uploadFile', // 后端api接口
+            filePath: tempFilePath, // uni.chooseImage函数调用后获取的本地文件路劲
+            name: 'file', //后端通过'file'获取上传的文件对象
+            formData: requestData,
+            header: { "Content-Type": "multipart/form-data" },
+            fail: function fail(res) {
+              console.log(res);
+              that.showloading = false;
+            },
+            success: function success(res) {
+              console.log(res);
+              if (res.data.code == '000') {
+                console.log('文件上传成功');
+              }
+              setTimeout(function () {
+                _util.default.toastSuccess('上传成功');
+              }, 100);
+              that.filePath = requestData.fileName;
+
+              that.openFlag = false;
+              that.$emit('returnItem', tempFilePath);
+              that.showloading = false;
+            } });
+
+
+
+
+          // 上传文件后
+        } });
+
 
     },
     clickPicture: function clickPicture() {
@@ -1031,14 +1210,19 @@ var _default = { data: function data() {return { openFlag: false, //是否展开
           console.log(requestData.fileName);
           // 上传文件部分
           console.log('文件上传');
+          that.show = true;
+          that.showloading = true;
+          that.openFlag = false;
           uni.uploadFile({
-            url: 'http://dactylology.frogking.cn/fileService/uploadFile', // 后端api接口
+
+            url: 'https://dactylology.frogking.cn/fileService/uploadFile', // 后端api接口
             filePath: tempFilePath, // uni.chooseImage函数调用后获取的本地文件路劲
             name: 'file', //后端通过'file'获取上传的文件对象
             formData: requestData,
             header: { "Content-Type": "multipart/form-data" },
             fail: function fail(res) {
               console.log(res);
+              that.showloading = false;
             },
             success: function success(res) {
               console.log(res);
@@ -1049,8 +1233,13 @@ var _default = { data: function data() {return { openFlag: false, //是否展开
                 _util.default.toastSuccess('上传成功');
               }, 100);
               that.filePath = requestData.fileName;
-              that.$emit('returnItem', that.filePath);
+
+              that.openFlag = false;
+              that.$emit('returnItem', tempFilePath);
+              that.showloading = false;
             } });
+
+
 
 
           // 上传文件后
@@ -1279,25 +1468,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _config = _interopRequireDefault(__webpack_require__(/*! ../config.js */ 50));
 var _util = _interopRequireDefault(__webpack_require__(/*! ../utils/util.js */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
@@ -1349,27 +1519,26 @@ var _util = _interopRequireDefault(__webpack_require__(/*! ../utils/util.js */ 5
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { name: 'headernav', data: function data() {return { menuShow: false, redirect: encodeURIComponent('/pages/index/index'), info: {}, user: {} };}, onLoad: function onLoad(op) {this.info = _config.default.info;}, onShow: function onShow() {this.initUser();}, beforeUpdate: function beforeUpdate() {console.log("Headernav mounted");this.initUser();}, methods: { toMenu: function toMenu() {var that = this;that.menuShow = !that.menuShow;console.log(that.menuShow);}, userLoginEvent: function userLoginEvent(e) {console.log(this.user.uid);var that = this;if (that.user.uid == 0) {console.log(this.user.uid);that.menuShow = false;uni.navigateTo({ url: '/pages/login/login?redirect=' + this.redirect });}}, logout: function logout(e) {var that = this;uni.showModal({ title: '温馨提示', content: '您确定要退出登录吗？', duration: 2000, image: '../static/img/back.png', success: function success(res) {if (res.confirm) {var requestData = { token: '', type: '1' };requestData.token = that.user.token;_util.default.request(_config.default.api.unLogin); // 只需调用，不需要处理返回结果
-            _util.default.clearUser();_util.default.toastSuccess('退出成功');that.initUser();_util.default.setSignedAt(0);that.menuShow = false;uni.redirectTo({ url: '/pages/index/index' });}} });}, initUser: function initUser() {var that = this;var user = _util.default.getUser();console.log('user: ' + user);if (user == undefined || user.token == undefined) {console.log("user == undefined || user.token == undefined");user = { uid: '0',
+var _default = { name: 'headernav', data: function data() {return { menuShow: false, redirect: encodeURIComponent('/pages/index/index'), info: {}, user: {} };}, onLoad: function onLoad(op) {this.info = _config.default.info;}, onShow: function onShow() {this.initUser();}, beforeUpdate: function beforeUpdate() {console.log('Headernav mounted');this.initUser();}, methods: { toMenu: function toMenu() {var that = this;that.menuShow = !that.menuShow;console.log(that.menuShow);}, userLoginEvent: function userLoginEvent(e) {console.log(this.user.uid);var that = this;if (that.user.uid == 0) {console.log(this.user.uid);that.menuShow = false;uni.navigateTo({ url: '/pages/login/login?redirect=' + this.redirect });}}, logout: function logout(e) {var that = this;uni.showModal({ title: '温馨提示', content: '您确定要退出登录吗？', duration: 2000, image: '../static/img/back.png', success: function success(res) {if (res.confirm) {var requestData = { token: '', type: '1' };requestData.token = that.user.token;_util.default.request(_config.default.api.unLogin); // 只需调用，不需要处理返回结果
+            _util.default.clearUser();_util.default.toastSuccess('退出成功');
+            that.initUser();
+            _util.default.setSignedAt(0);
+            that.menuShow = false;
+            uni.redirectTo({
+              url: '/pages/index/index' });
+
+          }
+        } });
+
+    },
+    initUser: function initUser() {
+      var that = this;
+      var user = _util.default.getUser();
+      console.log('user: ' + user);
+      if (user == undefined || user.token == undefined) {
+        console.log('user == undefined || user.token == undefined');
+        user = {
+          uid: '0',
           nickname: '请点我登录',
           avatar: '/static/images/logo.jpg',
           intro: '心灵也手巧' };

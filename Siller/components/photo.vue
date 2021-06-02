@@ -2,25 +2,49 @@
 	<view>
 		<!-- <split heightSplit="100px" widthSplit="100%"></split> -->
 		<split heightSplit="5px" widthSplit="100%"></split>
-		<view v-if="mainwords!=''">
-		<view class="translate-history">
-			<view class="text-history"><text>识别结果</text></view>
-			<block v-for="(word, idx) of mainwords" :key="idx">
-				<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
-			</block>
-		</view>
-		<!-- <hch-menu v-on:returnItem="returnItem"></hch-menu> -->
-		<split heightSplit="5px" widthSplit="100%"></split>
-		<view class="translate-history">
-			<view class="text-history"><text>相似结果</text></view>
-			<block v-for="(word, idx) of mainwords" :key="idx">
-				<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
-			</block>
-		</view>
-		</view>
 		<hch-menu v-on:returnItem="returnItem"></hch-menu>
+		<view style="margin: 10px auto; height:auto;width: 100%; vertical-align: middle;">
+			<!-- <image :src="filePath" mode="heightFix" style="width: 100%;"></image> -->
+			<u-image width="100%" height="300rpx" :src="filePath"></u-image>
+		</view>
 		<!-- <view>{{ filePath }}</view> -->
 		<!-- <u-modal :v-model="true" :zoom="false"></u-modal> -->
+		<u-popup v-model="show" mode="bottom" width="100%" height="80%">
+			<split heightSplit="5px" widthSplit="100%"></split>
+			<view v-if="mainwords != ''">
+				<view class="translate-history">
+					<view class="text-history"><text>识别结果</text></view>
+					<block v-for="(word, idx) of mainwords" :key="idx">
+						<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+					</block>
+				</view>
+				<!-- <hch-menu v-on:returnItem="returnItem"></hch-menu> -->
+				<split heightSplit="5px" widthSplit="100%"></split>
+				<view class="translate-history">
+					<view class="text-history"><text>相似结果</text></view>
+					<block v-for="(word, idx) of mainwords" :key="idx">
+						<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+					</block>
+				</view>
+			</view>
+		</u-popup>
+		<split heightSplit="5px" widthSplit="100%"></split>
+		<view v-if="mainwords != ''">
+			<view class="translate-history">
+				<view class="text-history"><text>识别结果</text></view>
+				<block v-for="(word, idx) of mainwords" :key="idx">
+					<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+				</block>
+			</view>
+			<!-- <hch-menu v-on:returnItem="returnItem"></hch-menu> -->
+			<split heightSplit="5px" widthSplit="100%"></split>
+			<view class="translate-history">
+				<view class="text-history"><text>相似结果</text></view>
+				<block v-for="(word, idx) of mainwords" :key="idx">
+					<meaning :type="word.pos" :interpretation="word.text" :imgsrc="word.urlPic" :word="word.word" :videosrc="word.urlMov"></meaning>
+				</block>
+			</view>
+		</view>
 	</view>
 </template>
 <script>
@@ -37,13 +61,14 @@ export default {
 		return {
 			imgPath: '',
 			filePath: '',
-			mainwords: []
+			mainwords: [],
+			show: false
 		};
 	},
 	props: {},
 	watch: {
 		filePath(val, oldVal) {
-			let that=this;
+			let that = this;
 			console.log('filePath = ' + val + ' , oldValue = ' + oldVal);
 			let fileRequst = {
 				token: ''
@@ -54,11 +79,13 @@ export default {
 			util.request(config.api.transfor1, fileRequst, 'POST')
 				.then(res => {
 					let items = res.item;
+					console.log(res);
+					console.log('items.length');
 					console.log(items.length);
 
 					for (let i = 0; i < items.length; i++) {
-						if(items[i].result == ''){
-							items[i].result='1';
+						if (items[i].result == '') {
+							items[i].result = '1';
 						}
 						if (items[i].result != '') {
 							let wordRequst = {
@@ -74,6 +101,8 @@ export default {
 										if (res.code != '301') {
 											console.log(res);
 											that.mainwords.push(res);
+											console.log(res);
+											console.log('11111111111');
 										}
 									})
 									.catch(e => {
@@ -88,6 +117,7 @@ export default {
 					that.loading = false;
 					util.toastError(e.data.message || e.errMsg);
 				});
+			that.show = true;
 		}
 	},
 

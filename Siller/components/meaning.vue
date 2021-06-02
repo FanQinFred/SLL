@@ -1,11 +1,11 @@
 <template>
 <view>
-	<view class="box" @click="toDetail">
-		<view class="word">
+	<view class="box u-skeleton " @click="toDetail">
+		<view class="word u-skeleton-fillet">
 			<text style="font-weight: bold; font-family: '楷体'; margin-left: 5px;">{{ type }}. {{ word }}</text>
 		</view>
-		<view class="picture"><image style="width: 120px; height: 120px" mode="aspectFill" :src="imgsrc"></image></view>
-		<view class="interpretation" style="font-weight: normal; font-family: '楷体'">{{ interpretation }}</view>
+		<view class="picture u-skeleton-rect"><image style="width: 120px; height: 120px" mode="aspectFill" :src="imgsrc"></image></view>
+		<view class="interpretation u-skeleton-rect" style="font-weight: normal; font-family: '楷体'">{{ interpretation }}</view>
 	</view>
 	</view>
 </template>
@@ -122,7 +122,7 @@ export default {
 }
 .word {
 	border-radius: 5%;
-	background-color: rgb(245, 236, 247);
+	background-color: rgb(252, 250, 255);
 	line-height: 40px;
 	vertical-align: middle;
 	position: absolute;

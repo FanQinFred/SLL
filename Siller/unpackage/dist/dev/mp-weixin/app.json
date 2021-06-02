@@ -25,6 +25,5 @@
     "navigationStyle": "custom"
   },
   "permission": {},
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

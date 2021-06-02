@@ -17,7 +17,7 @@ import api from '../../utils/api.js';
 export default {
 		data() {
 			return {
-        openFlag:false, //是否展开菜单
+        openFlag:true, //是否展开菜单
 		filePath:'1.jpg'
       }
 		},
@@ -40,12 +40,13 @@ export default {
 						sourceType: ['camera'], //从相册选择
 					    success: (chooseImageRes) => {
 					        const tempFilePaths = chooseImageRes.tempFilePaths;
+							console.log(tempFilePaths[0]+"lllllllllllllllllllllllll");
 							requestData.fileName=tempFilePaths[0].substring(tempFilePaths[0].lastIndexOf("/")+1);
 							console.log(requestData.fileName);
 					        // 上传文件部分
 							console.log('文件上传');
 							uni.uploadFile({
-							    url:'http://dactylology.frogking.cn/fileService/uploadFile',     // 后端api接口
+							    url:'https://dactylology.frogking.cn/fileService/uploadFile',     // 后端api接口
 							    filePath: tempFilePaths[0], // uni.chooseImage函数调用后获取的本地文件路劲
 							    name:'file',     //后端通过'file'获取上传的文件对象
 							    formData: requestData,
@@ -61,14 +62,17 @@ export default {
 									setTimeout(function() {
 										util.toastSuccess('上传成功');
 									}, 100);
-									that.filePath=requestData.fileName;
-									that.$emit('returnItem', that.filePath)
+									// that.filePath=requestData.fileName;
+									console.log(tempFilePaths[0]);
+									that.$emit('returnItem', tempFilePaths[0]);
+									that.openFlag=false;
 							    },
 								
 							});
 							// 上传文件后
 					    }
 					});
+					
 				
 			},
 			clickPicture(){
@@ -83,12 +87,13 @@ export default {
 					sourceType: ['album'], //从相册选择
 				    success: (chooseImageRes) => {
 				        const tempFilePaths = chooseImageRes.tempFilePaths;
+						console.log(tempFilePaths[0]);
 						requestData.fileName=tempFilePaths[0].substring(tempFilePaths[0].lastIndexOf("/")+1);
 						console.log(requestData.fileName);
 				        // 上传文件部分
 						console.log('文件上传');
 						uni.uploadFile({
-						    url:'http://dactylology.frogking.cn/fileService/uploadFile',     // 后端api接口
+						    url:'https://dactylology.frogking.cn/fileService/uploadFile',     // 后端api接口
 						    filePath: tempFilePaths[0], // uni.chooseImage函数调用后获取的本地文件路劲
 						    name:'file',     //后端通过'file'获取上传的文件对象
 						    formData: requestData,
@@ -105,7 +110,8 @@ export default {
 									util.toastSuccess('上传成功');
 								}, 100);
 								that.filePath=requestData.fileName;
-								that.$emit('returnItem', that.filePath)
+								that.$emit('returnItem', tempFilePaths[0])
+								that.openFlag=false;
 						    },
 							
 						});

@@ -1,146 +1,146 @@
 
 page {
-  color: $u-main-color;
-  font-size: 28rpx;
+	color: $u-main-color;
+	font-size: 28rpx;
 }
 .logoword {
-  height: 38px;
-  line-height: 48px;
-  margin: 0 auto;
-  padding-right: 53px;
-  font-size: 21px;
-  font-weight: bold;
+	height: 38px;
+	line-height: 48px;
+	margin: 0 auto;
+	padding-right: 53px;
+	font-size: 21px;
+	font-weight: bold;
 }
 .box {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  /* 如果您想让slot内容占满整个导航栏的宽度 */
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  /* 如果您想让slot内容与导航栏左右有空隙 */
-  padding: 0 30rpx;
-  height: 48px;
-  width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	/* 如果您想让slot内容占满整个导航栏的宽度 */
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	/* 如果您想让slot内容与导航栏左右有空隙 */
+	padding: 0 30rpx;
+	height: 48px;
+	width: 100%;
 }
 .menu {
-  width: 48px;
-  height: 48px;
-  text-align: center;
-  vertical-align: middle;
-  /* line-height: 48px; */
+	width: 48px;
+	height: 48px;
+	text-align: center;
+	vertical-align: middle;
+	/* line-height: 48px; */
 }
 .func {
-  margin-top: 50px;
+	margin-top: 50px;
 }
 .base-padding {
-  box-sizing: border-box;
-  padding: 0rpx 30rpx;
+	box-sizing: border-box;
+	padding: 0rpx 30rpx;
 }
 .row {
-  background-color: #fff;
-  margin-bottom: 10rpx;
-  padding: 30rpx;
+	background-color: #fff;
+	margin-bottom: 10rpx;
+	padding: 30rpx;
 }
 .font-lv2 {
-  font-size: 16px !important;
+	font-size: 16px !important;
 }
 .base-info {
-  padding-top: 0rpx;
-  padding-bottom: 0rpx;
+	padding-top: 0rpx;
+	padding-bottom: 0rpx;
 }
 .col-12 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 100%;
-          flex: 0 0 100%;
-  max-width: 100%;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 100%;
+	        flex: 0 0 100%;
+	max-width: 100%;
 }
 image.me-icon {
-  width: 40rpx;
-  height: 40rpx;
-  vertical-align: middle;
-  margin-right: 6rpx;
-  position: relative;
-  top: -4rpx;
+	width: 40rpx;
+	height: 40rpx;
+	vertical-align: middle;
+	margin-right: 6rpx;
+	position: relative;
+	top: -4rpx;
 }
 .pull-right {
-  float: right;
+	float: right;
 }
 .username {
-  margin: 15rpx auto;
+	margin: 15rpx auto;
 }
 .color-grey {
-  color: #888;
+	color: #888;
 }
 .font-lv3 {
-  font-size: 14px !important;
+	font-size: 14px !important;
 }
 .user {
-  text-align: center;
-  display: block;
-  width: 100%;
+	text-align: center;
+	display: block;
+	width: 100%;
 }
 .user .text-muted {
-  text-align: center;
+	text-align: center;
 }
 .user image {
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 90rpx;
-  border: 1px solid #ddd;
-  margin: 0 auto;
-  display: block;
+	width: 180rpx;
+	height: 180rpx;
+	border-radius: 90rpx;
+	border: 1px solid #ddd;
+	margin: 0 auto;
+	display: block;
 }
 .user-func {
-  line-height: 40rpx;
-  border: 1px solid #000000;
+	line-height: 40rpx;
+	border: 1px solid #000000;
 }
 .user-func {
-  line-height: 40rpx;
-  border: 1px solid #000000;
+	line-height: 40rpx;
+	border: 1px solid #000000;
 }
 .user-func .func-item {
-  line-height: 300%;
-  border-bottom: 1rpx dashed #f1f1f1;
-  padding: 0;
-  margin: 0;
+	line-height: 300%;
+	border-bottom: 1rpx dashed #f1f1f1;
+	padding: 0;
+	margin: 0;
 }
 .user-func .color-red {
-  margin-right: 8rpx;
+	margin-right: 8rpx;
 }
 .user-intro {
-  width: 100%;
-  text-align: center;
+	width: 100%;
+	text-align: center;
 }
 image {
-  display: inline-block;
+	display: inline-block;
 }
 .base-info image {
-  margin-right: 30rpx !important;
+	margin-right: 30rpx !important;
 }
 .base-info image.pull-right {
-  margin-right: 0 !important;
-  top: 0;
+	margin-right: 0 !important;
+	top: 0;
 }
 .base-info {
-  padding-top: 0rpx;
-  padding-bottom: 0rpx;
+	padding-top: 0rpx;
+	padding-bottom: 0rpx;
 }
 .base-info .col-12 {
-  border-bottom: 1px solid #f6f6f6;
-  padding-bottom: 30rpx;
-  padding-top: 30rpx;
-  color: #666;
+	border-bottom: 1px solid #f6f6f6;
+	padding-bottom: 30rpx;
+	padding-top: 30rpx;
+	color: #666;
 }
 .base-info .col-12:last-of-type {
-  margin-bottom: 0;
-  border-bottom: 0;
+	margin-bottom: 0;
+	border-bottom: 0;
 }
 

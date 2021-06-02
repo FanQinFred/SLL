@@ -24,11 +24,13 @@
 	</view> -->
 	<view>
 		<view class="box1">
-			<text style="font-weight: bold;font-size: 24px; font-family: '楷体'; margin: 0px auto;">{{ word }}<text style="font-size: 16px; font-family: '楷体'; margin: 0px auto;">{{"  "}}{{ type }}. </text></text>
+			<text style="font-weight: bold;font-size: 24px; font-family: '楷体'; margin: 0px auto;">{{ word }}<text style="font-size: 16px; font-family: '楷体'; margin: 0px auto;">{{"   "}}{{ type }}. </text></text>
 		</view>
-		<view class="box2">
+		<view class="box2 u-skeleton">
 			<u-tabs active-color="#b3c5ff" :list="list" :is-scroll="false" :current="current" @change="change"></u-tabs>
-			<view v-if="current == 0" class="picture"><image style="width: 240px; height:  240px" mode="aspectFill" :src="imgsrc"></image></view>
+			
+			<view v-if="current == 0" class="picture"><image style="top: 20px;width: 240px; height:  240px" mode="aspectFill" :src="imgsrc"></image></view>
+			
 			<view v-else class="video">
 				<video
 					style="position:static; z-index: 1;"

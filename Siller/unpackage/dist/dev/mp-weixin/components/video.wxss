@@ -14,7 +14,7 @@
 }
 .word {
   border-radius: 5%;
-  background-color: #f5ecf7;
+  background-color: #fcfaff;
   line-height: 40px;
   vertical-align: middle;
   position: absolute;
@@ -71,7 +71,7 @@
   height: 86rpx;
 }
 .menu-content .menu.data-v-3d9eafb6 {
-  z-index: 1;
+  z-index: 10;
   opacity: 1;
 }
 .menu-content .menuOpen.data-v-3d9eafb6 {
@@ -107,6 +107,39 @@
   right: 160rpx;
   bottom: 20rpx;
 }
+.u-progress-content.data-v-3d9eafb6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.u-progress-dot.data-v-3d9eafb6 {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #fb9126;
+}
+.u-progress-info.data-v-3d9eafb6 {
+  font-size: 28rpx;
+  padding-left: 16rpx;
+  letter-spacing: 2rpx;
+}
+.lding.data-v-3d9eafb6 {
+  text-align: center;
+  background-color: #ffffff;
+  position: absolute;
+  overflow: hidden;
+  height: auto;
+  top: 200px;
+  left: 0;
+  right: 0;
+  margin: 8 auto;
+}
 
 @charset "UTF-8";
 /**
@@ -131,5 +164,49 @@
   font-size: 20px;
   font-weight: bolder;
   font-family: '楷体';
+}
+.video.data-v-457e2a60 {
+  text-align: center;
+  background-color: #ffffff;
+  position: absolute;
+  overflow: hidden;
+  width: 99%;
+  height: auto;
+  left: 0;
+  right: 0;
+  margin: 8 auto;
+}
+.lding.data-v-457e2a60 {
+  text-align: center;
+  background-color: #ffffff;
+  position: absolute;
+  overflow: hidden;
+  height: auto;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 8 auto;
+}
+.u-progress-content.data-v-457e2a60 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+.u-progress-dot.data-v-457e2a60 {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #fb9126;
+}
+.u-progress-info.data-v-457e2a60 {
+  font-size: 28rpx;
+  padding-left: 16rpx;
+  letter-spacing: 2rpx;
 }
 

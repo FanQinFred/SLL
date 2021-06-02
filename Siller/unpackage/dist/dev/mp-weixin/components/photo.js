@@ -521,6 +521,12 @@ __webpack_require__.r(__webpack_exports__);
 var components = {
   hchMenu: function() {
     return __webpack_require__.e(/*! import() | components/hch-menu/hch-menu */ "components/hch-menu/hch-menu").then(__webpack_require__.bind(null, /*! @/components/hch-menu/hch-menu.vue */ 184))
+  },
+  uImage: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-image/u-image */ "uview-ui/components/u-image/u-image").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-image/u-image.vue */ 257))
+  },
+  uPopup: function() {
+    return __webpack_require__.e(/*! import() | uview-ui/components/u-popup/u-popup */ "uview-ui/components/u-popup/u-popup").then(__webpack_require__.bind(null, /*! @/uview-ui/components/u-popup/u-popup.vue */ 191))
   }
 }
 var render = function() {
@@ -586,6 +592,30 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _meaning = _interopRequireDefault(__webpack_require__(/*! ./meaning.vue */ 53));
 var _split = _interopRequireDefault(__webpack_require__(/*! ./split.vue */ 60));
 
@@ -615,27 +645,32 @@ var _util = _interopRequireDefault(__webpack_require__(/*! ../utils/util.js */ 5
 //
 //
 //
-var HchMune = function HchMune() {__webpack_require__.e(/*! require.ensure | components/hch-menu/hch-menu */ "components/hch-menu/hch-menu").then((function () {return resolve(__webpack_require__(/*! ./hch-menu/hch-menu.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { meaning: _meaning.default, split: _split.default, HchMune: HchMune }, data: function data() {return { imgPath: '', filePath: '', mainwords: [] };}, props: {}, watch: { filePath: function filePath(val, oldVal) {var that = this;console.log('filePath = ' + val + ' , oldValue = ' + oldVal);var fileRequst = { token: '' };fileRequst.token = _util.default.getToken();console.log(fileRequst);_util.default.request(_config.default.api.transfor1, fileRequst, 'POST').then(function (res) {var items = res.item;
-        console.log(items.length);
-
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].result == '') {
-            items[i].result = '1';
-          }
-          if (items[i].result != '') {
-            var wordRequst = {
-              token: '',
-              fid: '' };
-
-            wordRequst.token = _util.default.getToken();
-            wordRequst.fid = items[i].result;
-            if (wordRequst.fid != '-1') {
-              _util.default.request(_config.default.api.resource3, wordRequst, 'POST').
-              then(function (res) {
-                console.log(res);
-                if (res.code != '301') {
-                  console.log(res);
-                  that.mainwords.push(res);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var HchMune = function HchMune() {__webpack_require__.e(/*! require.ensure | components/hch-menu/hch-menu */ "components/hch-menu/hch-menu").then((function () {return resolve(__webpack_require__(/*! ./hch-menu/hch-menu.vue */ 184));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { meaning: _meaning.default, split: _split.default, HchMune: HchMune }, data: function data() {return { imgPath: '', filePath: '', mainwords: [], show: false };}, props: {}, watch: { filePath: function filePath(val, oldVal) {var that = this;console.log('filePath = ' + val + ' , oldValue = ' + oldVal);var fileRequst = { token: '' };fileRequst.token = _util.default.getToken();console.log(fileRequst);_util.default.request(_config.default.api.transfor1, fileRequst, 'POST').then(function (res) {var items = res.item;console.log(res);console.log('items.length');console.log(items.length);for (var i = 0; i < items.length; i++) {if (items[i].result == '') {items[i].result = '1';}if (items[i].result != '') {var wordRequst = { token: '', fid: '' };wordRequst.token = _util.default.getToken();wordRequst.fid = items[i].result;if (wordRequst.fid != '-1') {_util.default.request(_config.default.api.resource3, wordRequst, 'POST').then(function (res) {console.log(res);if (res.code != '301') {console.log(res);that.mainwords.push(res);console.log(res);
+                  console.log('11111111111');
                 }
               }).
               catch(function (e) {
@@ -650,6 +685,7 @@ var HchMune = function HchMune() {__webpack_require__.e(/*! require.ensure | com
         that.loading = false;
         _util.default.toastError(e.data.message || e.errMsg);
       });
+      that.show = true;
     } },
 
 
